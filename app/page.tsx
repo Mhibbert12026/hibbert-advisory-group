@@ -35,12 +35,58 @@ const selectedExperienceCapabilities = [
   "AI Transformation",
 ] as const;
 
-const representativeEngagements = [
-  "Product growth and platform strategy for major media organizations",
-  "AI and workflow transformation initiatives",
-  "Healthcare and medical technology product development",
-  "OTT and digital platform strategy",
-  "Nonprofit and mission-driven transformation programs",
+const representativeExperience = [
+  {
+    title: "Sports & Media Platforms",
+    description:
+      "Experience supporting sports, media, OTT, and audience engagement platforms, including work across digital content ecosystems and large-scale consumer experiences.",
+  },
+  {
+    title: "Healthcare & Medical Technology",
+    description:
+      "Product strategy and platform initiatives supporting healthcare organizations, medical protocol solutions, pharmaceutical communications, and regulated environments.",
+  },
+  {
+    title: "AI Product Strategy",
+    description:
+      "AI product planning, computer vision initiatives, analytics workflows, recommendation systems, and content discovery experiences designed to improve engagement and decision-making.",
+  },
+  {
+    title: "Workflow Automation",
+    description:
+      "Identification of repetitive workflows, operational bottlenecks, tooling opportunities, and practical automation paths.",
+  },
+  {
+    title: "SaaS & Startup Growth",
+    description:
+      "Support for founders and teams building, positioning, improving, and scaling digital products and platform-based businesses.",
+  },
+  {
+    title: "Nonprofit & Mission-Driven Transformation",
+    description:
+      "Product, operations, and strategy support for organizations focused on access, opportunity, and measurable social impact.",
+  },
+] as const;
+
+const careerSnapshotHighlights = [
+  "15+ Years Product & Strategy Leadership",
+  "Healthcare, Media, Sports, SaaS & Nonprofit Experience",
+  "AI Product Strategy & Workflow Automation",
+  "Startup Through Enterprise Scale Experience",
+  "Product, Growth & Operational Excellence",
+] as const;
+
+const careerHighlights = [
+  "Product leadership across media, healthcare, SaaS, and nonprofit sectors",
+  "Experience supporting organizations from startup through enterprise scale",
+  "Cross-functional leadership across product, operations, and growth initiatives",
+  "Deep expertise in product strategy, revenue growth, and AI adoption",
+] as const;
+
+const engagementModelItems = [
+  "Executive-ready recommendations",
+  "Practical implementation guidance",
+  "Fractional leadership when ongoing support is needed",
 ] as const;
 
 const howWeWorkSteps = [
@@ -52,7 +98,7 @@ const howWeWorkSteps = [
   {
     title: "Assessment",
     description:
-      "Identify growth, operational, product, and AI transformation opportunities.",
+      "Identify growth, operational, product, workflow automation, and AI implementation opportunities.",
   },
   {
     title: "Roadmap",
@@ -62,14 +108,18 @@ const howWeWorkSteps = [
 ] as const;
 
 const expertiseAreas = [
+  "AI Implementation Strategy",
+  "AI Product Strategy",
+  "Workflow Automation",
+  "AI Tooling Recommendations",
+  "Computer Vision Use Cases",
+  "Analytics Workflows",
+  "Recommendation & Personalization Systems",
+  "Recommendation Logic",
+  "Operational Cost Reduction",
+  "Digital Product & Platform Development",
   "Product Strategy",
   "Revenue Growth",
-  "AI Transformation",
-  "Digital Platforms",
-  "Digital Product & Platform Development",
-  "SaaS Products",
-  "Media & OTT",
-  "Community Platforms",
   "Operational Excellence",
 ] as const;
 
@@ -107,12 +157,16 @@ const services = [
       "Prioritized 90-day growth roadmap",
       "Executive findings presentation",
     ],
+    bestFor: [
+      "Revenue growth challenges",
+      "Product-market fit refinement",
+      "Go-to-market optimization",
+    ],
   },
   {
     id: "ai-assessment",
     title: "AI Opportunity Diagnostic",
-    startingPrice: "Starting at $2,500",
-    mostPopular: true,
+    startingPrice: "Starting at $3,500",
     tagline: "Practical AI—not hype",
     description:
       "Identify practical opportunities to reduce costs, improve efficiency, and accelerate execution through AI.",
@@ -120,24 +174,21 @@ const services = [
       "Most organizations know AI is important. Few know where to start. We identify practical, high-impact opportunities that create measurable business value.",
     outcomesLabel: "Deliverables",
     outcomes: [
-      "Operational cost reduction analysis",
-      "Identification of repetitive and manual processes suitable for automation",
-      "AI tooling and technology recommendations",
-      "Workflow optimization opportunities",
-      "Risk and implementation considerations",
-      "90-Day AI Implementation Roadmap",
-    ],
-    idealFor: [
-      "Organizations exploring AI adoption",
-      "Teams looking to reduce operational costs",
-      "Leaders seeking workflow automation opportunities",
+      "AI opportunity assessment",
+      "Workflow automation review",
+      "Tooling and vendor recommendations",
+      "Risk and governance considerations",
+      "Executive findings presentation",
+      "90-day implementation roadmap",
     ],
   },
   {
     id: "fractional",
     title: "Fractional Product & Strategy Leadership",
-    startingPrice: "Starting at $8,000/month",
-    tagline: "Senior product leadership without the full-time hire",
+    startingPrice: "Engagements begin at $8,000/month",
+    mostComprehensive: true,
+    tagline:
+      "Executive-level product, growth, and operational leadership without the cost of a full-time executive hire.",
     description:
       "Embedded partnership with your executive team: product vision, roadmap governance, cross-functional alignment, and board-ready narrative—on a schedule that fits your stage.",
     outcomesLabel: "Deliverables",
@@ -149,7 +200,23 @@ const services = [
       "Board & investor narrative support",
       "Monthly strategic advisory sessions",
     ],
+    bestFor: [
+      "Executive teams",
+      "Scaling organizations",
+      "Founder support",
+    ],
   },
+] as const;
+
+const aiImplementationAreas = [
+  "Workflow Automation",
+  "Internal Knowledge Management",
+  "Customer Support Optimization",
+  "Analytics & Reporting Acceleration",
+  "Computer Vision Applications",
+  "Content Discovery & Recommendation Systems",
+  "Sales & Marketing Operations",
+  "Product Experience Enhancements",
 ] as const;
 
 const engagementTimelines = [
@@ -382,7 +449,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Representative Engagements */}
+        {/* Representative Experience */}
         <section className="border-t border-white/5 px-6 py-24 lg:px-8">
           <div className="mx-auto max-w-6xl">
             <div className="max-w-2xl">
@@ -390,24 +457,93 @@ export default function Home() {
                 Track record
               </p>
               <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-                Representative Engagements
+                Representative Experience
               </h2>
               <p className="mt-4 text-slate-400 leading-relaxed">
-                Experience supporting product, growth, platform, and transformation
-                initiatives across complex organizations and emerging businesses.
+                Experience spanning media, healthcare, sports, nonprofits, SaaS,
+                AI-enabled products, and digital platform businesses—from startup
+                environments through enterprise-scale organizations.
               </p>
             </div>
 
-            <ul className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {representativeEngagements.map((engagement) => (
+            <ul className="mt-12 grid gap-6 sm:grid-cols-2">
+              {representativeExperience.map((item) => (
                 <li
-                  key={engagement}
+                  key={item.title}
                   className="rounded-2xl border border-white/8 bg-[#0f1c30]/80 p-6 shadow-xl shadow-black/20"
                 >
                   <div className="mb-4 h-px w-10 bg-gradient-to-r from-amber-500 to-amber-500/0" />
-                  <p className="text-sm leading-relaxed text-slate-300">
-                    {engagement}
+                  <h3 className="text-lg font-semibold text-white">
+                    {item.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-relaxed text-slate-400">
+                    {item.description}
                   </p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        {/* Executive Leadership Experience */}
+        <section className="border-t border-white/5 bg-[#0a1424] px-6 py-24 lg:px-8">
+          <div className="mx-auto max-w-6xl">
+            <div className="max-w-2xl">
+              <p className="text-sm font-medium tracking-[0.15em] text-amber-400/90 uppercase">
+                Background
+              </p>
+              <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+                Executive Leadership Experience
+              </h2>
+              <p className="mt-4 text-slate-400 leading-relaxed">
+                A blend of product leadership, operational execution, and strategic
+                advisory experience spanning startups, enterprise organizations,
+                media, healthcare, nonprofits, and emerging technologies.
+              </p>
+            </div>
+
+            <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {careerSnapshotHighlights.map((highlight) => (
+                <li
+                  key={highlight}
+                  className="rounded-xl border border-amber-500/20 bg-amber-500/5 px-5 py-5 text-sm font-medium leading-snug text-slate-200"
+                >
+                  <div className="mb-3 h-px w-8 bg-gradient-to-r from-amber-500 to-amber-500/0" />
+                  {highlight}
+                </li>
+              ))}
+            </ul>
+
+            <p className="mx-auto mt-10 max-w-3xl rounded-lg border border-amber-500/25 bg-amber-500/5 px-6 py-4 text-center text-sm leading-relaxed text-slate-300">
+              Advisory experience across regulated industries, digital platforms,
+              emerging technologies, and growth-stage organizations.
+            </p>
+          </div>
+        </section>
+
+        {/* Engagement Model */}
+        <section className="border-t border-white/5 px-6 py-16 lg:px-8 lg:py-20">
+          <div className="mx-auto max-w-6xl">
+            <h2 className="text-sm font-semibold tracking-[0.2em] text-amber-400/90 uppercase">
+              Engagement Model
+            </h2>
+            <p className="mt-4 max-w-3xl text-lg leading-relaxed text-slate-300">
+              Advisory engagements are designed for organizations that need
+              strategic clarity, executive-level product leadership, operational
+              optimization, or AI transformation guidance without adding
+              full-time overhead.
+            </p>
+            <ul className="mt-8 grid gap-4 sm:grid-cols-3">
+              {engagementModelItems.map((item) => (
+                <li
+                  key={item}
+                  className="flex items-start gap-3 rounded-xl border border-white/8 bg-[#0f1c30]/80 px-5 py-4 text-sm text-slate-300"
+                >
+                  <span
+                    className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-amber-400"
+                    aria-hidden
+                  />
+                  {item}
                 </li>
               ))}
             </ul>
@@ -437,7 +573,7 @@ export default function Home() {
             <div className="mt-16 grid gap-8 lg:grid-cols-3 lg:items-stretch">
               {services.map((service) => {
                 const isFlagship =
-                  "mostPopular" in service && service.mostPopular;
+                  "mostComprehensive" in service && service.mostComprehensive;
 
                 return (
                 <article
@@ -463,9 +599,9 @@ export default function Home() {
                   )}
                   <div className="relative flex flex-1 flex-col">
                   <div className={`h-px bg-gradient-to-r from-amber-500 to-amber-500/0 ${isFlagship ? "mb-7 w-16" : "mb-6 w-12"}`} />
-                  {"mostPopular" in service && service.mostPopular && (
+                  {"mostComprehensive" in service && service.mostComprehensive && (
                     <span className="mb-3 inline-flex w-fit items-center rounded-full border border-amber-500/40 bg-amber-500/15 px-3 py-1 text-xs font-semibold tracking-wide text-amber-200 uppercase">
-                      Most Popular
+                      Most Comprehensive
                     </span>
                   )}
                   <h3 className="text-xl font-semibold text-white">
@@ -485,13 +621,13 @@ export default function Home() {
                       {service.valueStatement}
                     </p>
                   )}
-                  {"idealFor" in service && service.idealFor && (
+                  {"bestFor" in service && service.bestFor && (
                     <div className="mt-5 rounded-lg border border-white/8 bg-white/[0.03] px-4 py-4">
                       <p className="text-xs font-medium tracking-wider text-amber-400/90 uppercase">
-                        Ideal For
+                        Best For
                       </p>
                       <ul className="mt-3 space-y-2">
-                        {service.idealFor.map((item) => (
+                        {service.bestFor.map((item) => (
                           <li
                             key={item}
                             className="flex items-start gap-2 text-sm text-slate-400"
@@ -587,6 +723,29 @@ export default function Home() {
                 ))}
               </ol>
             </div>
+          </div>
+        </section>
+
+        {/* AI Implementation Areas */}
+        <section className="border-t border-white/5 bg-[#0a1424] px-6 py-16 lg:px-8 lg:py-20">
+          <div className="mx-auto max-w-6xl">
+            <h2 className="text-xl font-semibold tracking-tight text-white sm:text-2xl">
+              AI Implementation Areas
+            </h2>
+            <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {aiImplementationAreas.map((area) => (
+                <li
+                  key={area}
+                  className="flex items-start gap-2.5 rounded-xl border border-white/8 bg-[#0f1c30]/80 px-4 py-3.5 text-sm text-slate-300"
+                >
+                  <span
+                    className="mt-2 h-1 w-1 shrink-0 rounded-full bg-amber-400"
+                    aria-hidden
+                  />
+                  {area}
+                </li>
+              ))}
+            </ul>
           </div>
         </section>
 
@@ -752,19 +911,35 @@ export default function Home() {
                   <p>
                     Michael Hibbert partners with founders and leadership teams
                     who need sharper product direction, stronger growth, and clearer
-                    execution. He helps organizations prioritize what matters, align
+                    execution—helping organizations prioritize what matters, align
                     stakeholders, and deliver measurable business outcomes.
                   </p>
                   <p>
                     His experience spans media, healthcare, sports, OTT, startups,
-                    SaaS, and nonprofits—bringing practical insight across business
-                    models, digital platforms, and stages of growth.
+                    SaaS, and nonprofits. Through Hibbert Advisory Group, he engages
+                    with clients through diagnostics, executive strategy, and
+                    fractional product leadership.
                   </p>
-                  <p>
-                    Through Hibbert Advisory Group, Michael engages with clients
-                    through diagnostics, executive strategy, and fractional product
-                    leadership—delivering senior expertise with clarity and focus.
+                </div>
+
+                <div className="mt-10 border-t border-white/10 pt-8">
+                  <p className="text-xs font-medium tracking-wider text-slate-500 uppercase">
+                    Career Highlights
                   </p>
+                  <ul className="mt-4 space-y-3">
+                    {careerHighlights.map((highlight) => (
+                      <li
+                        key={highlight}
+                        className="flex items-start gap-2.5 text-sm text-slate-300"
+                      >
+                        <span
+                          className="mt-2 h-1 w-1 shrink-0 rounded-full bg-amber-400"
+                          aria-hidden
+                        />
+                        {highlight}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
 
                 <div className="mt-10 border-t border-white/10 pt-8">
@@ -898,12 +1073,11 @@ export default function Home() {
             />
             <div className="relative">
               <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl lg:text-[2.5rem] lg:leading-tight">
-                Ready to unlock your next phase of growth?
+                Let&apos;s Identify Your Biggest Growth Opportunity
               </h2>
               <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-slate-300 sm:text-lg">
-                Start with the Discovery Intake to discuss product strategy,
-                growth opportunities, operational challenges, or AI transformation
-                initiatives.
+                Start with a short Discovery Intake so we can understand your goals,
+                challenges, and priorities before recommending the right next step.
               </p>
               <div className="mt-10 flex flex-col items-center justify-center gap-5">
                 <Link
