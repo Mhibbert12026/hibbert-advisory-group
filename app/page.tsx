@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -7,8 +8,41 @@ export const metadata: Metadata = {
     "Executive advisory for product-led growth, revenue diagnostics, AI opportunity assessment, and fractional product leadership.",
 };
 
-// Discovery intake form URL for all primary CTA buttons ("Start Discovery Intake").
-const DISCOVERY_INTAKE_FORM_URL = "https://tally.so/r/LZkXrG";
+// Discovery intake page for all primary CTA buttons ("Start Discovery Intake").
+const DISCOVERY_INTAKE_PATH = "/intake";
+
+const aboutImpactSnapshot = [
+  "15+ Years Digital Product Leadership",
+  "Product, Operations & Growth Strategy",
+  "Startup to Enterprise Experience",
+  "AI Transformation & Platform Strategy",
+] as const;
+
+const aboutSelectedExperience = [
+  "Paramount / Viacom",
+  "CBS Interactive",
+  "McCann Health",
+  "RipRoad",
+  "Penton Media",
+  "NBA Ecosystem",
+] as const;
+
+const selectedExperienceBrands = [
+  "PARAMOUNT / VIACOM",
+  "CBS INTERACTIVE",
+  "MCCANN HEALTH",
+  "RIPROAD",
+  "PENTON MEDIA",
+  "NBA ECOSYSTEM",
+] as const;
+
+const selectedExperienceCapabilities = [
+  "Media & Entertainment",
+  "Healthcare & Life Sciences",
+  "Product Strategy",
+  "Growth & Revenue Optimization",
+  "AI Transformation",
+] as const;
 
 const expertiseAreas = [
   "Product Strategy",
@@ -175,7 +209,7 @@ const processSteps = [
 
 const navLinks = [
   { href: "#services", label: "Services" },
-  { href: "#clients", label: "Clients" },
+  { href: "#clients", label: "Experience" },
   { href: "#expertise", label: "Expertise" },
   { href: "#about", label: "About" },
   { href: "#process", label: "Process" },
@@ -198,13 +232,15 @@ export default function Home() {
 
       <header className="relative z-10 border-b border-white/5 bg-[#060d18]/80 backdrop-blur-md">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5 lg:px-8">
-          <Link href="/" className="group flex flex-col">
-            <span className="text-sm font-semibold tracking-[0.2em] text-amber-400/90 uppercase">
-              Hibbert Advisory Group
-            </span>
-            <span className="text-xs text-slate-500 group-hover:text-slate-400 transition-colors">
-              Product Strategy • Revenue Growth • AI Transformation
-            </span>
+          <Link href="/" className="block shrink-0">
+            <Image
+              src="/hibbert-logo.png"
+              alt="Hibbert Advisory Group"
+              width={270}
+              height={81}
+              className="h-auto w-[210px] sm:w-[270px]"
+              priority
+            />
           </Link>
           <nav
             className="hidden items-center gap-8 md:flex"
@@ -220,14 +256,12 @@ export default function Home() {
               </a>
             ))}
           </nav>
-          <a
-            href={DISCOVERY_INTAKE_FORM_URL}
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href={DISCOVERY_INTAKE_PATH}
             className="hidden rounded-full border border-amber-500/40 bg-amber-500/10 px-5 py-2 text-sm font-medium text-amber-200 hover:bg-amber-500/20 transition-colors sm:inline-flex"
           >
             Start Discovery Intake
-          </a>
+          </Link>
         </div>
       </header>
 
@@ -265,14 +299,12 @@ export default function Home() {
               digital platform businesses.
             </p>
             <div className="mt-10 flex flex-wrap items-center gap-4">
-              <a
-                href={DISCOVERY_INTAKE_FORM_URL}
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href={DISCOVERY_INTAKE_PATH}
                 className="inline-flex items-center justify-center rounded-full bg-amber-500 px-8 py-3.5 text-sm font-semibold text-[#060d18] hover:bg-amber-400 transition-colors"
               >
                 Start Discovery Intake
-              </a>
+              </Link>
               <a
                 href="#services"
                 className="inline-flex items-center justify-center rounded-full border border-white/15 px-8 py-3.5 text-sm font-medium text-white hover:border-white/30 hover:bg-white/5 transition-colors"
@@ -299,10 +331,44 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Selected Experience */}
+        <section
+          id="experience"
+          className="border-t border-white/5 bg-[#0a1424] px-6 py-16 lg:px-8 lg:py-20"
+        >
+          <div className="mx-auto max-w-6xl">
+            <h2 className="text-center text-sm font-semibold tracking-[0.2em] text-amber-400/90 uppercase">
+              Selected Experience
+            </h2>
+
+            <ul className="mt-8 flex flex-wrap items-center justify-center gap-3">
+              {selectedExperienceBrands.map((brand) => (
+                <li
+                  key={brand}
+                  className="rounded-lg border border-white/10 bg-[#0f1c30]/90 px-4 py-2.5 text-xs font-medium tracking-wide text-slate-200 sm:text-sm"
+                >
+                  {brand}
+                </li>
+              ))}
+            </ul>
+
+            <ul className="mt-5 flex flex-wrap items-center justify-center gap-2.5">
+              {selectedExperienceCapabilities.map((capability) => (
+                <li
+                  key={capability}
+                  className="rounded-full border border-white/8 bg-white/[0.03] px-3.5 py-1.5 text-xs font-medium text-slate-400"
+                >
+                  {capability}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
         {/* Services */}
         <section
           id="services"
-          className="border-t border-white/5 bg-[#0a1424] px-6 py-24 lg:px-8"
+          className="border-t border-white/5 px-6 py-24 lg:px-8"
         >
           <div className="mx-auto max-w-6xl">
             <div className="max-w-2xl">
@@ -594,38 +660,25 @@ export default function Home() {
           className="border-t border-white/5 px-6 py-24 lg:px-8"
         >
           <div className="mx-auto max-w-6xl">
-            <div className="grid items-start gap-12 lg:grid-cols-2 lg:gap-16 lg:items-center">
+            <div className="grid items-start gap-12 lg:grid-cols-2 lg:gap-16 lg:items-start">
               {/* Headshot */}
-              <div className="relative mx-auto w-full max-w-md lg:mx-0">
-                <div
-                  className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-[#1a3352] via-[#152a45] to-[#0a1424] shadow-2xl shadow-black/40"
-                  role="img"
-                  aria-label="Michael Hibbert professional headshot placeholder"
-                >
-                  <div
-                    className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_30%_20%,rgba(245,158,11,0.08),transparent_50%)]"
-                    aria-hidden
+              <div className="relative mx-auto w-full max-w-[340px] lg:mx-0">
+                <div className="group relative aspect-[4/5] w-full max-w-[340px] overflow-hidden rounded-xl border border-amber-500/35 bg-[#0a1424] shadow-2xl shadow-black/40 transition-all duration-300 hover:border-amber-500/55 hover:shadow-[0_12px_48px_-16px_rgba(0,0,0,0.5),0_0_32px_-8px_rgba(245,158,11,0.12)]">
+                  <Image
+                    src="/michael-hibbert-headshot.png"
+                    alt="Michael Hibbert, Founder and Principal Advisor at Hibbert Advisory Group"
+                    width={340}
+                    height={425}
+                    className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
+                    sizes="(max-width: 1024px) 85vw, 340px"
                   />
-                  <div className="flex h-full flex-col items-center justify-center p-8">
-                    <div className="flex h-28 w-28 items-center justify-center rounded-full border border-white/10 bg-white/5">
-                      <span className="text-4xl font-light tracking-tight text-white/20 select-none">
-                        MH
-                      </span>
-                    </div>
-                    <p className="mt-8 text-center text-xs font-medium tracking-[0.2em] text-slate-500 uppercase">
-                      Professional headshot
-                    </p>
-                    <p className="mt-2 text-center text-sm text-slate-600">
-                      Placeholder
-                    </p>
-                  </div>
                 </div>
                 <div
-                  className="absolute -bottom-4 -right-4 hidden h-28 w-28 rounded-2xl border border-amber-500/25 bg-amber-500/5 lg:block"
+                  className="absolute -bottom-4 -right-4 hidden h-24 w-24 rounded-xl border border-amber-500/25 bg-amber-500/5 lg:block"
                   aria-hidden
                 />
                 <div
-                  className="absolute -top-3 -left-3 hidden h-20 w-20 rounded-2xl border border-white/5 bg-[#0f1c30]/80 lg:block"
+                  className="absolute -top-3 -left-3 hidden h-16 w-16 rounded-xl border border-white/5 bg-[#0f1c30]/80 lg:block"
                   aria-hidden
                 />
               </div>
@@ -647,63 +700,71 @@ export default function Home() {
 
                 <div className="mt-8 space-y-5 text-base leading-relaxed text-slate-400">
                   <p>
-                    Michael Hibbert is a product strategist, operator, and advisor
-                    who helps leadership teams translate vision into measurable
-                    outcomes. He combines hands-on operational experience with
-                    executive-level judgment—guiding organizations through
-                    product strategy, growth initiatives, and the practical adoption
-                    of AI across the business.
+                    Michael Hibbert partners with founders and leadership teams
+                    who need sharper product direction, stronger growth, and clearer
+                    execution. He helps organizations prioritize what matters, align
+                    stakeholders, and deliver measurable business outcomes.
                   </p>
                   <p>
-                    His career spans technology companies, digital platforms, media
-                    and OTT, startups, and mission-driven nonprofits. That breadth
-                    gives him a distinctive ability to see patterns across business
-                    models: where revenue leaks, where product experiences fall
-                    short, and where technology—including AI—can create durable
-                    advantage rather than distraction.
+                    His experience spans media, healthcare, sports, OTT, startups,
+                    SaaS, and nonprofits—bringing practical insight across business
+                    models, digital platforms, and stages of growth.
                   </p>
                   <p>
-                    Michael has led and advised on product roadmaps, go-to-market
-                    alignment, platform evolution, and operational excellence. He
-                    works comfortably with founders, boards, and cross-functional
-                    teams—bringing structure to ambiguous problems, sharpening
-                    prioritization, and ensuring strategy connects to execution.
-                  </p>
-                  <p>
-                    Through Hibbert Advisory Group, Michael partners with
-                    growth-stage and established organizations that need senior
-                    product and strategy leadership without the overhead of a
-                    full-time executive hire. Engagements range from focused
-                    diagnostics to fractional leadership, always with an emphasis
-                    on clarity, accountability, and outcomes leadership can defend.
+                    Through Hibbert Advisory Group, Michael engages with clients
+                    through diagnostics, executive strategy, and fractional product
+                    leadership—delivering senior expertise with clarity and focus.
                   </p>
                 </div>
 
                 <div className="mt-10 border-t border-white/10 pt-8">
                   <p className="text-xs font-medium tracking-wider text-slate-500 uppercase">
-                    Core experience
+                    Impact Snapshot
                   </p>
-                  <ul className="mt-4 flex flex-wrap gap-3">
-                    {[
-                      "Product strategy",
-                      "Operations",
-                      "Revenue growth",
-                      "Digital platforms",
-                      "Media & OTT",
-                      "Startups",
-                      "Nonprofits",
-                      "AI transformation",
-                    ].map((skill) => (
+                  <ul className="mt-4 grid gap-3 sm:grid-cols-2">
+                    {aboutImpactSnapshot.map((item) => (
                       <li
-                        key={skill}
-                        className="rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-medium text-slate-300"
+                        key={item}
+                        className="rounded-lg border border-amber-500/20 bg-amber-500/5 px-4 py-3 text-sm font-medium leading-snug text-slate-200"
                       >
-                        {skill}
+                        {item}
                       </li>
                     ))}
                   </ul>
                 </div>
               </div>
+            </div>
+
+            <div className="mt-16 border-t border-white/10 pt-12">
+              <p className="text-xs font-medium tracking-wider text-slate-500 uppercase">
+                Selected Experience
+              </p>
+              <ul className="mt-6 flex flex-wrap gap-3">
+                {aboutSelectedExperience.map((organization) => (
+                  <li
+                    key={organization}
+                    className="rounded-full border border-white/10 bg-[#0f1c30]/80 px-4 py-2 text-sm font-medium text-slate-300"
+                  >
+                    {organization}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="mt-12 rounded-2xl border border-amber-500/20 bg-gradient-to-br from-[#152a45]/80 via-[#0f1c30]/80 to-[#0a1424] px-8 py-10 text-center sm:px-10">
+              <h3 className="text-xl font-semibold tracking-tight text-white sm:text-2xl">
+                Ready to explore growth opportunities?
+              </h3>
+              <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-slate-300">
+                Start with a short intake so we can understand your goals,
+                challenges, and priorities.
+              </p>
+              <Link
+                href={DISCOVERY_INTAKE_PATH}
+                className="mt-6 inline-flex items-center justify-center rounded-full bg-amber-500 px-10 py-3.5 text-sm font-semibold text-[#060d18] shadow-lg shadow-amber-500/20 hover:bg-amber-400 transition-colors"
+              >
+                Start Discovery Intake
+              </Link>
             </div>
           </div>
         </section>
@@ -780,14 +841,12 @@ export default function Home() {
                 initiatives.
               </p>
               <div className="mt-10 flex flex-col items-center justify-center gap-5">
-                <a
-                  href={DISCOVERY_INTAKE_FORM_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  href={DISCOVERY_INTAKE_PATH}
                   className="inline-flex w-full max-w-md items-center justify-center rounded-full bg-amber-500 px-12 py-4 text-base font-semibold text-[#060d18] shadow-lg shadow-amber-500/25 ring-2 ring-amber-400/30 hover:bg-amber-400 hover:shadow-amber-500/35 transition-all sm:w-auto"
                 >
                   Start Discovery Intake
-                </a>
+                </Link>
                 <a
                   href="mailto:hello@hibbertadvisory.com"
                   className="text-sm text-slate-400 hover:text-amber-200/90 transition-colors"
