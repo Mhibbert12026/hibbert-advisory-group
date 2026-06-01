@@ -18,15 +18,6 @@ const aboutImpactSnapshot = [
   "AI Transformation & Platform Strategy",
 ] as const;
 
-const aboutSelectedExperience = [
-  "Paramount / Viacom",
-  "CBS Interactive",
-  "McCann Health",
-  "RipRoad",
-  "Penton Media",
-  "NBA Ecosystem",
-] as const;
-
 const selectedExperienceBrands = [
   "PARAMOUNT / VIACOM",
   "CBS INTERACTIVE",
@@ -42,6 +33,32 @@ const selectedExperienceCapabilities = [
   "Product Strategy",
   "Growth & Revenue Optimization",
   "AI Transformation",
+] as const;
+
+const representativeEngagements = [
+  "Product growth and platform strategy for major media organizations",
+  "AI and workflow transformation initiatives",
+  "Healthcare and medical technology product development",
+  "OTT and digital platform strategy",
+  "Nonprofit and mission-driven transformation programs",
+] as const;
+
+const howWeWorkSteps = [
+  {
+    title: "Discovery",
+    description:
+      "Understand objectives, constraints, stakeholders, and opportunities.",
+  },
+  {
+    title: "Assessment",
+    description:
+      "Identify growth, operational, product, and AI transformation opportunities.",
+  },
+  {
+    title: "Roadmap",
+    description:
+      "Deliver prioritized recommendations and implementation guidance designed to create measurable business outcomes.",
+  },
 ] as const;
 
 const expertiseAreas = [
@@ -359,6 +376,38 @@ export default function Home() {
                   className="rounded-full border border-white/8 bg-white/[0.03] px-3.5 py-1.5 text-xs font-medium text-slate-400"
                 >
                   {capability}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        {/* Representative Engagements */}
+        <section className="border-t border-white/5 px-6 py-24 lg:px-8">
+          <div className="mx-auto max-w-6xl">
+            <div className="max-w-2xl">
+              <p className="text-sm font-medium tracking-[0.15em] text-amber-400/90 uppercase">
+                Track record
+              </p>
+              <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+                Representative Engagements
+              </h2>
+              <p className="mt-4 text-slate-400 leading-relaxed">
+                Experience supporting product, growth, platform, and transformation
+                initiatives across complex organizations and emerging businesses.
+              </p>
+            </div>
+
+            <ul className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {representativeEngagements.map((engagement) => (
+                <li
+                  key={engagement}
+                  className="rounded-2xl border border-white/8 bg-[#0f1c30]/80 p-6 shadow-xl shadow-black/20"
+                >
+                  <div className="mb-4 h-px w-10 bg-gradient-to-r from-amber-500 to-amber-500/0" />
+                  <p className="text-sm leading-relaxed text-slate-300">
+                    {engagement}
+                  </p>
                 </li>
               ))}
             </ul>
@@ -685,12 +734,13 @@ export default function Home() {
 
               {/* Executive profile */}
               <div>
-                <p className="text-sm font-medium tracking-[0.15em] text-amber-400/90 uppercase">
-                  Executive profile
-                </p>
-                <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-                  About Michael Hibbert
+                <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+                  Helping Organizations Navigate Growth, Product Strategy, and AI
+                  Transformation
                 </h2>
+                <p className="mt-4 text-sm font-medium tracking-[0.15em] text-amber-400/90 uppercase">
+                  About Michael Hibbert
+                </p>
                 <p className="mt-3 text-lg font-medium text-slate-200">
                   Founder & Principal Advisor, Hibbert Advisory Group
                 </p>
@@ -733,22 +783,6 @@ export default function Home() {
                   </ul>
                 </div>
               </div>
-            </div>
-
-            <div className="mt-16 border-t border-white/10 pt-12">
-              <p className="text-xs font-medium tracking-wider text-slate-500 uppercase">
-                Selected Experience
-              </p>
-              <ul className="mt-6 flex flex-wrap gap-3">
-                {aboutSelectedExperience.map((organization) => (
-                  <li
-                    key={organization}
-                    className="rounded-full border border-white/10 bg-[#0f1c30]/80 px-4 py-2 text-sm font-medium text-slate-300"
-                  >
-                    {organization}
-                  </li>
-                ))}
-              </ul>
             </div>
 
             <div className="mt-12 rounded-2xl border border-amber-500/20 bg-gradient-to-br from-[#152a45]/80 via-[#0f1c30]/80 to-[#0a1424] px-8 py-10 text-center sm:px-10">
@@ -814,6 +848,37 @@ export default function Home() {
             </ol>
           </div>
         </section>
+
+        {/* How We Work */}
+        <section className="border-t border-white/5 px-6 py-24 lg:px-8">
+          <div className="mx-auto max-w-6xl">
+            <div className="max-w-2xl">
+              <p className="text-sm font-medium tracking-[0.15em] text-amber-400/90 uppercase">
+                Approach
+              </p>
+              <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+                How We Work
+              </h2>
+            </div>
+
+            <ul className="mt-12 grid gap-6 lg:grid-cols-3">
+              {howWeWorkSteps.map((item) => (
+                <li
+                  key={item.title}
+                  className="rounded-2xl border border-white/8 bg-[#0f1c30]/80 p-6 shadow-xl shadow-black/20"
+                >
+                  <div className="mb-4 h-px w-10 bg-gradient-to-r from-amber-500 to-amber-500/0" />
+                  <h3 className="text-lg font-semibold text-white">
+                    {item.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-relaxed text-slate-400">
+                    {item.description}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
       </main>
 
       {/* Premium CTA — directly above footer */}
@@ -836,8 +901,8 @@ export default function Home() {
                 Ready to unlock your next phase of growth?
               </h2>
               <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-slate-300 sm:text-lg">
-                Schedule a Discovery Call to discuss product strategy, growth
-                opportunities, operational challenges, or AI transformation
+                Start with the Discovery Intake to discuss product strategy,
+                growth opportunities, operational challenges, or AI transformation
                 initiatives.
               </p>
               <div className="mt-10 flex flex-col items-center justify-center gap-5">
@@ -848,14 +913,15 @@ export default function Home() {
                   Start Discovery Intake
                 </Link>
                 <a
-                  href="mailto:hello@hibbertadvisory.com"
+                  href="mailto:michaeldhibbert@gmail.com"
                   className="text-sm text-slate-400 hover:text-amber-200/90 transition-colors"
                 >
-                  hello@hibbertadvisory.com
+                  michaeldhibbert@gmail.com
                 </a>
               </div>
               <p className="mt-8 text-xs text-slate-500">
-                Complimentary 30-minute discovery call. No obligation.
+                Most engagements begin with a Discovery Intake and introductory
+                conversation.
               </p>
             </div>
           </div>
