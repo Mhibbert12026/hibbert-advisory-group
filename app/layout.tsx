@@ -19,11 +19,11 @@ export const metadata: Metadata = {
   },
   description:
     "Executive advisory for product-led growth, revenue diagnostics, AI opportunity assessment, and fractional product leadership.",
-}icons: {
-  icon: "/favicon.png",
-  shortcut: "/favicon.png",
-  apple: "/favicon.png",
-  
+  icons: {
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
+  },
 };
 
 export default function RootLayout({
