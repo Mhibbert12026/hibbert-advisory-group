@@ -35,36 +35,36 @@ const selectedExperienceCapabilities = [
   "AI Transformation",
 ] as const;
 
-const representativeExperience = [
+const functionalExpertise = [
   {
-    title: "Sports & Media Platforms",
+    title: "Product Strategy & Roadmapping",
     description:
-      "Experience supporting sports, media, OTT, and audience engagement platforms, including work across digital content ecosystems and large-scale consumer experiences.",
-  },
-  {
-    title: "Healthcare & Medical Technology",
-    description:
-      "Product strategy and platform initiatives supporting healthcare organizations, medical protocol solutions, pharmaceutical communications, and regulated environments.",
+      "Define product direction, prioritize initiatives, and create roadmaps leadership teams can execute.",
   },
   {
     title: "AI Product Strategy",
     description:
-      "Product planning for AI-enabled capabilities, including computer vision use cases, analytics workflows, recommendation systems, and content discovery experiences.",
+      "Plan AI-enabled product capabilities including recommendation systems, analytics workflows, computer vision use cases, and content discovery experiences.",
   },
   {
     title: "Workflow Automation",
     description:
-      "Analysis of repetitive workflows, operational bottlenecks, tooling options, and practical automation paths.",
+      "Identify repetitive workflows, operational bottlenecks, tooling options, and practical automation paths.",
   },
   {
-    title: "SaaS & Startup Growth",
+    title: "Audience Engagement & Platforms",
     description:
-      "Support for founders and teams building, positioning, improving, and scaling digital products and platform-based businesses.",
+      "Support digital products, content ecosystems, OTT experiences, and audience engagement platforms.",
   },
   {
-    title: "Nonprofit & Mission-Driven Transformation",
+    title: "Revenue Growth & Monetization",
     description:
-      "Product, operations, and strategy support for organizations focused on access, opportunity, and measurable social impact.",
+      "Assess revenue performance, product-market fit, conversion friction, and monetization opportunities.",
+  },
+  {
+    title: "Executive Stakeholder Alignment",
+    description:
+      "Create executive-ready recommendations, align cross-functional priorities, and support decision-making.",
   },
 ] as const;
 
@@ -95,31 +95,33 @@ const selectedOutcomes = [
   {
     title: "Product Portfolio Expansion",
     description:
-      "Expanded a digital product ecosystem from one application into a broader portfolio of customer-facing products through product strategy, customer insights, and roadmap development.",
+      "Expanded a product portfolio from 1 product to 4 customer-facing products through product strategy, customer insight, and roadmap execution.",
   },
   {
-    title: "Platform & Audience Engagement",
+    title: "Audience Engagement Platforms",
     description:
-      "Led product and platform initiatives supporting audience engagement, content delivery, and digital experiences across media and platform-based environments.",
+      "Led initiatives supporting audience engagement, content delivery, and digital experiences across media and platform businesses.",
   },
   {
-    title: "AI-Enabled Product Strategy",
+    title: "AI Product Strategy",
     description:
-      "Developed AI-enabled product strategies incorporating recommendation systems, analytics workflows, personalization capabilities, and content discovery experiences.",
+      "Developed AI product concepts incorporating recommendation systems, analytics workflows, personalization capabilities, and content discovery experiences.",
   },
   {
-    title: "Growth & Transformation Support",
+    title: "Growth & Transformation",
     description:
-      "Partnered with organizations navigating growth, operational complexity, digital transformation, and evolving technology landscapes.",
+      "Supported organizations through growth-stage scaling, digital transformation initiatives, and operational complexity.",
   },
 ] as const;
 
-const careerSnapshotHighlights = [
-  "15+ Years Product & Strategy Leadership",
-  "Healthcare, Media, Sports, SaaS & Nonprofit Experience",
-  "AI Product Strategy & Workflow Automation",
-  "Startup Through Enterprise Scale Experience",
-  "Product, Growth & Operational Excellence",
+const impactHighlights = [
+  "15+ Years Product Leadership",
+  "1 → 4 Product Portfolio Expansion",
+  {
+    label: "5 Industries Served",
+    detail: "Healthcare • Media • Sports • SaaS • Nonprofit",
+  },
+  "Startup → Enterprise Scale Experience",
 ] as const;
 
 const careerHighlights = [
@@ -152,40 +154,6 @@ const howWeWorkSteps = [
       "Deliver prioritized recommendations and implementation guidance designed to create measurable business outcomes.",
   },
 ] as const;
-
-const expertiseAreas = [
-  "AI Implementation Strategy",
-  "AI Product Strategy",
-  "Workflow Automation",
-  "AI Tooling Recommendations",
-  "Computer Vision Use Cases",
-  "Analytics Workflows",
-  "Recommendation & Personalization Systems",
-  "Recommendation Logic",
-  "Operational Cost Reduction",
-  "Digital Product & Platform Development",
-  "Product Strategy",
-  "Revenue Growth",
-  "Operational Excellence",
-] as const;
-
-const digitalProductExpertise = {
-  title: "Digital Product & Platform Development",
-  description:
-    "Support organizations in planning, launching, and scaling web, mobile, SaaS, and platform-based products.",
-  positioning:
-    "Strategic product and platform advisory across discovery, roadmaps, vendor decisions, and launch planning. Advisory only; not a development agency.",
-  capabilities: [
-    "Product Discovery",
-    "MVP Strategy",
-    "Web Application Planning",
-    "Mobile Application Planning",
-    "Platform Roadmapping",
-    "Technical Vendor Evaluation",
-    "AI Product Integration",
-    "Product Launch Support",
-  ],
-} as const;
 
 const services = [
   {
@@ -495,43 +463,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Executive Leadership Experience */}
-        <section className="border-t border-white/5 bg-[#0a1424] px-6 py-24 lg:px-8">
-          <div className="mx-auto max-w-6xl">
-            <div className="max-w-2xl">
-              <p className="text-sm font-medium tracking-[0.15em] text-amber-400/90 uppercase">
-                Background
-              </p>
-              <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-                Executive Leadership Experience
-              </h2>
-              <p className="mt-4 text-slate-400 leading-relaxed">
-                A blend of product leadership, operational execution, and strategic
-                advisory experience spanning startups, enterprise organizations,
-                media, healthcare, nonprofits, and emerging technologies.
-              </p>
-            </div>
-
-            <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {careerSnapshotHighlights.map((highlight) => (
-                <li
-                  key={highlight}
-                  className="rounded-xl border border-amber-500/20 bg-amber-500/5 px-5 py-5 text-sm font-medium leading-snug text-slate-200"
-                >
-                  <div className="mb-3 h-px w-8 bg-gradient-to-r from-amber-500 to-amber-500/0" />
-                  {highlight}
-                </li>
-              ))}
-            </ul>
-
-            <p className="mx-auto mt-10 max-w-3xl rounded-lg border border-amber-500/25 bg-amber-500/5 px-6 py-4 text-center text-sm leading-relaxed text-slate-300">
-              Advisory experience across regulated industries, digital platforms,
-              emerging technologies, and growth-stage organizations.
-            </p>
-          </div>
-        </section>
-
-        {/* Selected Outcomes */}
+        {/* Representative Outcomes */}
         <section className="border-t border-white/5 px-6 py-24 lg:px-8">
           <div className="mx-auto max-w-6xl">
             <div className="max-w-2xl">
@@ -539,11 +471,11 @@ export default function Home() {
                 Outcomes
               </p>
               <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-                Selected Outcomes
+                Representative Outcomes
               </h2>
               <p className="mt-4 text-slate-400 leading-relaxed">
-                Representative outcomes from product strategy, platform leadership,
-                AI-enabled product planning, and digital transformation work.
+                Examples of product strategy, platform leadership, AI adoption, and
+                business transformation engagements.
               </p>
             </div>
 
@@ -563,6 +495,32 @@ export default function Home() {
                 </li>
               ))}
             </ul>
+
+            <div className="mt-16 border-t border-white/10 pt-12">
+              <h3 className="text-xl font-semibold tracking-tight text-white sm:text-2xl">
+                Impact Highlights
+              </h3>
+              <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                {impactHighlights.map((item) => (
+                  <li
+                    key={typeof item === "string" ? item : item.label}
+                    className="rounded-xl border border-amber-500/25 bg-amber-500/5 px-5 py-5 text-center text-sm font-medium leading-snug text-slate-200 sm:text-left"
+                  >
+                    <div className="mx-auto mb-3 h-px w-8 bg-gradient-to-r from-amber-500 to-amber-500/0 sm:mx-0" />
+                    {typeof item === "string" ? (
+                      item
+                    ) : (
+                      <>
+                        {item.label}
+                        <p className="mt-2 text-xs font-normal leading-relaxed text-slate-400">
+                          {item.detail}
+                        </p>
+                      </>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </section>
 
@@ -580,42 +538,6 @@ export default function Home() {
 
             <ul className="mt-12 grid gap-6 sm:grid-cols-2">
               {selectedIndustryExperience.map((item) => (
-                <li
-                  key={item.title}
-                  className="rounded-2xl border border-white/8 bg-[#0f1c30]/80 p-6 shadow-xl shadow-black/20"
-                >
-                  <div className="mb-4 h-px w-10 bg-gradient-to-r from-amber-500 to-amber-500/0" />
-                  <h3 className="text-lg font-semibold text-white">
-                    {item.title}
-                  </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-slate-400">
-                    {item.description}
-                  </p>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
-
-        {/* Representative Experience */}
-        <section className="border-t border-white/5 px-6 py-24 lg:px-8">
-          <div className="mx-auto max-w-6xl">
-            <div className="max-w-2xl">
-              <p className="text-sm font-medium tracking-[0.15em] text-amber-400/90 uppercase">
-                Track record
-              </p>
-              <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-                Representative Experience
-              </h2>
-              <p className="mt-4 text-slate-400 leading-relaxed">
-                Work across media, healthcare, sports, nonprofits, SaaS,
-                AI-enabled products, and digital platform businesses, from
-                growth-stage companies to enterprise organizations.
-              </p>
-            </div>
-
-            <ul className="mt-12 grid gap-6 sm:grid-cols-2">
-              {representativeExperience.map((item) => (
                 <li
                   key={item.title}
                   className="rounded-2xl border border-white/8 bg-[#0f1c30]/80 p-6 shadow-xl shadow-black/20"
@@ -894,87 +816,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Areas of Expertise */}
-        <section
-          id="expertise"
-          className="border-t border-white/5 bg-[#0a1424] px-6 py-24 lg:px-8"
-        >
-          <div className="mx-auto max-w-6xl">
-            <div className="max-w-2xl">
-              <p className="text-sm font-medium tracking-[0.15em] text-amber-400/90 uppercase">
-                Trust & expertise
-              </p>
-              <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-                Areas of Expertise
-              </h2>
-              <p className="mt-4 text-slate-400 leading-relaxed">
-                Experience across industries and business models, with pattern
-                recognition and practical judgment applied to each engagement,
-                including strategic guidance for digital product and platform
-                development.
-              </p>
-            </div>
-
-            <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {expertiseAreas.map((area) => (
-                <li
-                  key={area}
-                  className="flex items-center gap-3 rounded-xl border border-white/8 bg-[#0f1c30]/60 px-5 py-4 text-sm font-medium text-slate-200"
-                >
-                  <span
-                    className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-amber-500/20 bg-amber-500/10"
-                    aria-hidden
-                  >
-                    <span className="h-1.5 w-1.5 rounded-full bg-amber-400" />
-                  </span>
-                  {area}
-                </li>
-              ))}
-            </ul>
-
-            <article
-              id="platform-development"
-              className="mt-12 overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-[#0f1c30] to-[#0a1424] shadow-xl shadow-black/20"
-            >
-              <div className="grid gap-0 lg:grid-cols-2">
-                <div className="border-b border-white/8 p-8 lg:border-b-0 lg:border-r lg:p-10">
-                  <p className="text-xs font-medium tracking-[0.15em] text-amber-400/90 uppercase">
-                    Expertise category
-                  </p>
-                  <h3 className="mt-4 text-2xl font-semibold tracking-tight text-white">
-                    {digitalProductExpertise.title}
-                  </h3>
-                  <p className="mt-5 leading-relaxed text-slate-300">
-                    {digitalProductExpertise.description}
-                  </p>
-                  <p className="mt-5 border-l-2 border-amber-500/35 pl-4 text-sm leading-relaxed text-slate-400">
-                    {digitalProductExpertise.positioning}
-                  </p>
-                </div>
-                <div className="p-8 lg:p-10">
-                  <p className="text-xs font-medium tracking-wider text-slate-500 uppercase">
-                    Capabilities
-                  </p>
-                  <ul className="mt-5 grid gap-3 sm:grid-cols-2">
-                    {digitalProductExpertise.capabilities.map((capability) => (
-                      <li
-                        key={capability}
-                        className="flex items-start gap-2.5 text-sm text-slate-300"
-                      >
-                        <span
-                          className="mt-2 h-1 w-1 shrink-0 rounded-full bg-amber-400"
-                          aria-hidden
-                        />
-                        {capability}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </article>
-          </div>
-        </section>
-
         {/* About Michael Hibbert */}
         <section
           id="about"
@@ -1092,6 +933,44 @@ export default function Home() {
                 Start Discovery Intake
               </Link>
             </div>
+          </div>
+        </section>
+
+        {/* Functional Expertise */}
+        <section
+          id="expertise"
+          className="border-t border-white/5 px-6 py-24 lg:px-8"
+        >
+          <div className="mx-auto max-w-6xl">
+            <div className="max-w-2xl">
+              <p className="text-sm font-medium tracking-[0.15em] text-amber-400/90 uppercase">
+                Capabilities
+              </p>
+              <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+                Functional Expertise
+              </h2>
+              <p className="mt-4 text-slate-400 leading-relaxed">
+                Core advisory capabilities across product strategy, AI-enabled
+                products, workflow automation, growth, and executive execution.
+              </p>
+            </div>
+
+            <ul className="mt-12 grid gap-6 sm:grid-cols-2">
+              {functionalExpertise.map((item) => (
+                <li
+                  key={item.title}
+                  className="rounded-2xl border border-white/8 bg-[#0f1c30]/80 p-6 shadow-xl shadow-black/20"
+                >
+                  <div className="mb-4 h-px w-10 bg-gradient-to-r from-amber-500 to-amber-500/0" />
+                  <h3 className="text-lg font-semibold text-white">
+                    {item.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-relaxed text-slate-400">
+                    {item.description}
+                  </p>
+                </li>
+              ))}
+            </ul>
           </div>
         </section>
 
