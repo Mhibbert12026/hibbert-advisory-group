@@ -82,7 +82,7 @@ const selectedIndustryExperience = [
   {
     title: "SaaS & Digital Platforms",
     description:
-      "Product growth, monetization strategy, platform development, and operational scale.",
+      "Product growth, monetization strategy, platform scaling, and operational improvement.",
   },
   {
     title: "Mission-Driven Organizations",
@@ -532,7 +532,7 @@ export default function Home() {
                 Industries
               </p>
               <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-                Selected Industry Experience
+                Industry Experience
               </h2>
             </div>
 
