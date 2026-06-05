@@ -1,6 +1,16 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import {
+  EngagementCardBanner,
+  HeroKpiStrip,
+  HeroStrategicVisual,
+  OutcomesSectionAccent,
+  ProcessSectionVisual,
+  ProcessStepVisual,
+  SignatureMetricCard,
+  TrustedExperienceSection,
+} from "./components/strategic-visuals";
 
 export const metadata: Metadata = {
   title: "Hibbert Advisory Group | Product, Growth & AI Strategy",
@@ -16,6 +26,18 @@ const aboutImpactSnapshot = [
   "Product, Operations & Growth Strategy",
   "Startup to Enterprise Experience",
   "AI Transformation & Platform Strategy",
+] as const;
+
+const representativeOrganizations = [
+  "The New York Times",
+  "Amazon",
+  "Roku",
+  "Peloton",
+  "Paramount",
+  "WarnerMedia",
+  "ViacomCBS",
+  "Stadium",
+  "MLT",
 ] as const;
 
 const selectedExperienceBrands = [
@@ -35,36 +57,66 @@ const selectedExperienceCapabilities = [
   "AI Transformation",
 ] as const;
 
+const signatureMetrics = [
+  { value: "15+", label: "Years Experience" },
+  { value: "30%+", label: "Audience Growth" },
+  { value: "26%", label: "Platform Adoption Growth" },
+  { value: "$10M+", label: "Budget Leadership" },
+] as const;
+
+const representativeOutcomeMetrics = signatureMetrics;
+
+const featuredEngagements = [
+  {
+    client: "NYT",
+    outcome: "30%+ Audience Engagement Growth",
+    description:
+      "Supported audience engagement growth through analytics-driven product optimization, mobile portfolio expansion, and customer experience improvements.",
+  },
+  {
+    client: "MLT",
+    outcome: "26% Platform Adoption Growth",
+    description:
+      "Improved platform adoption and stakeholder engagement through product strategy, digital transformation, and analytics optimization.",
+  },
+  {
+    client: "Stadium",
+    outcome: "Audience Intelligence Optimization",
+    description:
+      "Supported audience growth initiatives through analytics utilization, product prioritization, and strategic planning.",
+  },
+] as const;
+
 const functionalExpertise = [
   {
     title: "Product Strategy & Roadmapping",
     description:
-      "Define product direction, prioritize initiatives, and create roadmaps leadership teams can execute.",
+      "Prioritize initiatives and create roadmaps leadership teams can execute.",
   },
   {
     title: "AI Product Strategy",
     description:
-      "Plan AI-enabled product capabilities including recommendation systems, analytics workflows, computer vision use cases, and content discovery experiences.",
+      "Identify practical AI opportunities tied to measurable business outcomes.",
   },
   {
     title: "Workflow Automation",
     description:
-      "Identify repetitive workflows, operational bottlenecks, tooling options, and practical automation paths.",
+      "Reduce operational friction through targeted automation opportunities.",
   },
   {
-    title: "Audience Engagement & Platforms",
+    title: "Audience Engagement Platforms",
     description:
-      "Support digital products, content ecosystems, OTT experiences, and audience engagement platforms.",
+      "Improve digital experiences and audience growth initiatives.",
   },
   {
-    title: "Revenue Growth & Monetization",
+    title: "Revenue Growth",
     description:
-      "Assess revenue performance, product-market fit, conversion friction, and monetization opportunities.",
+      "Identify monetization, conversion, and growth opportunities.",
   },
   {
-    title: "Executive Stakeholder Alignment",
+    title: "Executive Alignment",
     description:
-      "Create executive-ready recommendations, align cross-functional priorities, and support decision-making.",
+      "Create clarity across stakeholders and organizational priorities.",
   },
 ] as const;
 
@@ -122,13 +174,6 @@ const impactHighlights = [
     detail: "Healthcare • Media • Sports • SaaS • Nonprofit",
   },
   "Startup → Enterprise Scale Experience",
-] as const;
-
-const careerHighlights = [
-  "Product leadership across media, healthcare, SaaS, and nonprofit sectors",
-  "Experience supporting organizations from startup through enterprise scale",
-  "Cross-functional leadership across product, operations, and growth initiatives",
-  "Senior depth in product strategy, revenue growth, and AI adoption",
 ] as const;
 
 const engagementModelItems = [
@@ -375,7 +420,8 @@ export default function Home() {
             aria-hidden
           />
 
-          <div className="mx-auto max-w-6xl">
+          <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:gap-16">
+            <div>
             <p className="mb-6 max-w-3xl rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm leading-relaxed text-slate-300">
               <span className="mr-2 inline-block h-1.5 w-1.5 translate-y-[-1px] rounded-full bg-amber-400 align-middle" />
               Advisory for product strategy, operational improvement, and
@@ -410,22 +456,74 @@ export default function Home() {
                 Explore services
               </a>
             </div>
-            <dl className="mt-16 grid gap-8 border-t border-white/10 pt-12 sm:grid-cols-3">
-              {[
-                { label: "Focus", value: "B2B & growth-stage" },
-                { label: "Engagements", value: "Diagnostic to fractional" },
-                { label: "Approach", value: "Evidence-led, executive-ready" },
-              ].map((item) => (
-                <div key={item.label}>
-                  <dt className="text-xs font-medium tracking-wider text-slate-500 uppercase">
-                    {item.label}
-                  </dt>
-                  <dd className="mt-2 text-base font-medium text-white">
-                    {item.value}
-                  </dd>
-                </div>
+            <HeroKpiStrip metrics={signatureMetrics} />
+            </div>
+
+            <HeroStrategicVisual className="mx-auto w-full max-w-md lg:max-w-none" />
+          </div>
+        </section>
+
+        <TrustedExperienceSection />
+
+        {/* Representative Outcomes */}
+        <section className="relative overflow-hidden border-t border-white/5 px-6 py-20 lg:px-8 lg:py-24">
+          <OutcomesSectionAccent />
+          <div className="relative mx-auto max-w-6xl">
+            <div className="max-w-2xl">
+              <p className="text-sm font-medium tracking-[0.15em] text-amber-400/90 uppercase">
+                Outcomes
+              </p>
+              <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+                Representative Outcomes
+              </h2>
+            </div>
+
+            <ul className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              {representativeOutcomeMetrics.map((item, index) => (
+                <SignatureMetricCard
+                  key={item.label}
+                  value={item.value}
+                  label={item.label}
+                  index={index}
+                  featured={index === 1 || index === 3}
+                />
               ))}
-            </dl>
+            </ul>
+          </div>
+        </section>
+
+        {/* Featured Engagements */}
+        <section className="border-t border-white/5 bg-[#0a1424] px-6 py-24 lg:px-8">
+          <div className="mx-auto max-w-6xl">
+            <div className="max-w-2xl">
+              <p className="text-sm font-medium tracking-[0.15em] text-amber-400/90 uppercase">
+                Track record
+              </p>
+              <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+                Featured Engagements
+              </h2>
+            </div>
+
+            <ul className="mt-12 grid gap-8 lg:grid-cols-3">
+              {featuredEngagements.map((item, index) => (
+                <li
+                  key={item.client}
+                  className="group flex flex-col rounded-2xl border border-white/8 bg-[#0f1c30]/80 p-8 shadow-xl shadow-black/20 transition-all duration-300 hover:-translate-y-1 hover:border-amber-500/30 hover:shadow-2xl hover:shadow-black/30"
+                >
+                  <EngagementCardBanner index={index} />
+                  <div className="mb-6 h-px w-12 bg-gradient-to-r from-amber-500 to-amber-500/0 transition-all duration-300 group-hover:w-16" />
+                  <p className="text-2xl font-semibold tracking-tight text-white">
+                    {item.client}
+                  </p>
+                  <p className="mt-4 inline-block rounded-lg border border-amber-500/30 bg-amber-500/10 px-3 py-1.5 text-sm font-semibold tracking-wide text-amber-200">
+                    {item.outcome}
+                  </p>
+                  <p className="mt-5 flex-1 text-sm leading-relaxed text-slate-400 transition-colors duration-300 group-hover:text-slate-300">
+                    {item.description}
+                  </p>
+                </li>
+              ))}
+            </ul>
           </div>
         </section>
 
@@ -463,7 +561,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Representative Outcomes */}
+        {/* Engagement Examples */}
         <section className="border-t border-white/5 px-6 py-24 lg:px-8">
           <div className="mx-auto max-w-6xl">
             <div className="max-w-2xl">
@@ -471,7 +569,7 @@ export default function Home() {
                 Outcomes
               </p>
               <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-                Representative Outcomes
+                Engagement Examples
               </h2>
               <p className="mt-4 text-slate-400 leading-relaxed">
                 Examples of product strategy, platform leadership, AI adoption, and
@@ -506,6 +604,7 @@ export default function Home() {
                     key={typeof item === "string" ? item : item.label}
                     className="rounded-xl border border-amber-500/25 bg-amber-500/5 px-5 py-5 text-center text-sm font-medium leading-snug text-slate-200 sm:text-left"
                   >
+                    <span className="mx-auto mb-3 inline-block h-1.5 w-1.5 rounded-full bg-amber-400 hag-animate-pulse-glow sm:mx-0" />
                     <div className="mx-auto mb-3 h-px w-8 bg-gradient-to-r from-amber-500 to-amber-500/0 sm:mx-0" />
                     {typeof item === "string" ? (
                       item
@@ -847,73 +946,54 @@ export default function Home() {
 
               {/* Executive profile */}
               <div>
-                <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-                  Helping Organizations Navigate Growth, Product Strategy, and AI
-                  Transformation
+                <p className="text-sm font-medium tracking-[0.15em] text-amber-400/90 uppercase">
+                  About
+                </p>
+                <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl lg:text-5xl">
+                  Michael Hibbert
                 </h2>
-                <p className="mt-4 text-sm font-medium tracking-[0.15em] text-amber-400/90 uppercase">
-                  About Michael Hibbert
+                <p className="mt-3 text-lg font-medium text-amber-200/90">
+                  Founder & Principal Advisor
                 </p>
-                <p className="mt-3 text-lg font-medium text-slate-200">
-                  Founder & Principal Advisor, Hibbert Advisory Group
-                </p>
-                <p className="mt-2 text-sm text-amber-200/70">
-                  Product Strategy · Operations · Growth · AI Transformation
+                <p className="mt-6 max-w-xl text-base leading-relaxed text-slate-400">
+                  15+ years leading product strategy, digital transformation,
+                  audience growth, and AI initiatives across media, technology,
+                  nonprofit, and startup organizations.
                 </p>
 
-                <div className="mt-8 space-y-5 text-base leading-relaxed text-slate-400">
-                  <p>
-                    Michael Hibbert works with founders and leadership teams on
-                    product direction, revenue performance, and operational
-                    execution. He helps organizations set priorities, align
-                    stakeholders, and deliver measurable outcomes.
+                <div className="mt-10">
+                  <p className="text-sm font-medium tracking-[0.15em] text-amber-400/90 uppercase">
+                    Representative Organizations
                   </p>
-                  <p>
-                    His background spans media, healthcare, sports, OTT, startups,
-                    SaaS, and nonprofits. Through Hibbert Advisory Group, he leads
-                    diagnostics, executive strategy work, and fractional product
-                    leadership engagements.
-                  </p>
-                </div>
-
-                <div className="mt-10 border-t border-white/10 pt-8">
-                  <p className="text-xs font-medium tracking-wider text-slate-500 uppercase">
-                    Career Highlights
-                  </p>
-                  <ul className="mt-4 space-y-3">
-                    {careerHighlights.map((highlight) => (
+                  <ul className="mt-5 flex flex-wrap gap-2.5">
+                    {representativeOrganizations.map((org) => (
                       <li
-                        key={highlight}
-                        className="flex items-start gap-2.5 text-sm text-slate-300"
+                        key={org}
+                        className="rounded-full border border-white/10 bg-[#0f1c30]/80 px-4 py-2 text-xs font-medium tracking-wide text-slate-200 shadow-sm shadow-black/10 sm:text-sm"
                       >
-                        <span
-                          className="mt-2 h-1 w-1 shrink-0 rounded-full bg-amber-400"
-                          aria-hidden
-                        />
-                        {highlight}
+                        {org}
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                <div className="mt-10 border-t border-white/10 pt-8">
-                  <p className="text-xs font-medium tracking-wider text-slate-500 uppercase">
+                <div className="mt-12 border-t border-white/10 pt-10">
+                  <p className="text-sm font-medium tracking-[0.15em] text-amber-400/90 uppercase">
                     Impact Snapshot
                   </p>
-                  <ul className="mt-4 grid gap-3 sm:grid-cols-2">
+                  <ul className="mt-6 grid gap-4 sm:grid-cols-2">
                     {aboutImpactSnapshot.map((item) => (
                       <li
                         key={item}
-                        className="rounded-lg border border-amber-500/20 bg-amber-500/5 px-4 py-3 text-sm font-medium leading-snug text-slate-200"
+                        className="rounded-xl border border-amber-500/30 bg-gradient-to-br from-amber-500/10 via-amber-500/5 to-transparent px-5 py-5 shadow-lg shadow-black/20"
                       >
-                        {item}
+                        <div className="mb-3 h-px w-10 bg-gradient-to-r from-amber-500 to-amber-500/0" />
+                        <p className="text-sm font-semibold leading-snug text-white">
+                          {item}
+                        </p>
                       </li>
                     ))}
                   </ul>
-                  <p className="mt-6 border-l-2 border-amber-500/35 pl-4 text-sm leading-relaxed text-slate-400">
-                    Prior work includes organizations across healthcare, media,
-                    sports, SaaS, nonprofit, and digital platform environments.
-                  </p>
                 </div>
               </div>
             </div>
@@ -936,6 +1016,37 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Organizations Supported */}
+        <section className="border-t border-white/5 bg-[#0a1424] px-6 py-24 lg:px-8">
+          <div className="mx-auto max-w-6xl">
+            <div className="mx-auto max-w-2xl text-center lg:mx-0 lg:text-left">
+              <p className="text-sm font-medium tracking-[0.15em] text-amber-400/90 uppercase">
+                Experience
+              </p>
+              <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+                Organizations Supported
+              </h2>
+              <p className="mt-4 text-slate-400 leading-relaxed">
+                Representative experience across media, technology, nonprofit, and
+                growth-stage organizations.
+              </p>
+            </div>
+
+            <ul className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:gap-6">
+              {representativeOrganizations.map((org) => (
+                <li
+                  key={org}
+                  className="group flex min-h-[92px] items-center justify-center rounded-xl border border-white/8 bg-white/[0.03] px-5 py-6 text-center shadow-lg shadow-black/15 backdrop-blur-sm transition-all duration-300 hover:border-amber-500/30 hover:bg-white/[0.05] hover:shadow-xl hover:shadow-black/25"
+                >
+                  <span className="text-sm font-semibold tracking-wide text-slate-300 transition-colors duration-300 group-hover:text-white sm:text-base">
+                    {org}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
         {/* Functional Expertise */}
         <section
           id="expertise"
@@ -955,17 +1066,17 @@ export default function Home() {
               </p>
             </div>
 
-            <ul className="mt-12 grid gap-6 sm:grid-cols-2">
+            <ul className="mt-16 grid gap-8 sm:grid-cols-2">
               {functionalExpertise.map((item) => (
                 <li
                   key={item.title}
-                  className="rounded-2xl border border-white/8 bg-[#0f1c30]/80 p-6 shadow-xl shadow-black/20"
+                  className="rounded-2xl border border-white/8 bg-[#0f1c30]/80 p-8 shadow-xl shadow-black/20"
                 >
-                  <div className="mb-4 h-px w-10 bg-gradient-to-r from-amber-500 to-amber-500/0" />
+                  <div className="mb-6 h-px w-10 bg-gradient-to-r from-amber-500 to-amber-500/0" />
                   <h3 className="text-lg font-semibold text-white">
                     {item.title}
                   </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-slate-400">
+                  <p className="mt-5 text-sm leading-relaxed text-slate-400">
                     {item.description}
                   </p>
                 </li>
@@ -977,9 +1088,10 @@ export default function Home() {
         {/* Process */}
         <section
           id="process"
-          className="border-t border-white/5 bg-[#0a1424] px-6 py-24 lg:px-8"
+          className="relative overflow-hidden border-t border-white/5 bg-[#0a1424] px-6 py-24 lg:px-8"
         >
-          <div className="mx-auto max-w-6xl">
+          <ProcessSectionVisual />
+          <div className="relative mx-auto max-w-6xl">
             <div className="max-w-2xl">
               <p className="text-sm font-medium tracking-[0.15em] text-amber-400/90 uppercase">
                 Process
@@ -1005,6 +1117,7 @@ export default function Home() {
                       aria-hidden
                     />
                   )}
+                  <ProcessStepVisual index={index} />
                   <span className="text-3xl font-light text-amber-500/40">
                     {item.step}
                   </span>
@@ -1083,7 +1196,7 @@ export default function Home() {
                   Start Discovery Intake
                 </Link>
                 <a
-                  href="mailto:michaeldhibbert@gmail.com"
+                  href="mailto:mike@hibbertadvisorygroup.com"
                   className="text-sm text-slate-400 hover:text-amber-200/90 transition-colors"
                 >
                   michaeldhibbert@gmail.com

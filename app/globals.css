@@ -24,3 +24,96 @@ body {
   color: #e2e8f0;
   font-family: var(--font-geist-sans), system-ui, sans-serif;
 }
+
+@keyframes hag-pulse-glow {
+  0%,
+  100% {
+    opacity: 0.45;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes hag-line-draw {
+  from {
+    stroke-dashoffset: 240;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes hag-bar-rise {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes hag-spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes hag-kpi-shimmer {
+  0% {
+    background-position: 200% center;
+  }
+  100% {
+    background-position: -200% center;
+  }
+}
+
+.hag-animate-pulse-glow {
+  animation: hag-pulse-glow 3s ease-in-out infinite;
+}
+
+.hag-animate-line-draw {
+  stroke-dasharray: 240;
+  animation: hag-line-draw 2.5s ease-out forwards;
+}
+
+.hag-animate-bar-rise {
+  transform-origin: bottom;
+  animation: hag-bar-rise 1.2s ease-out forwards;
+}
+
+.hag-animate-spin-slow {
+  animation: hag-spin-slow 24s linear infinite;
+}
+
+.hag-kpi-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(245, 158, 11, 0.05) 0%,
+    rgba(245, 158, 11, 0.18) 50%,
+    rgba(245, 158, 11, 0.05) 100%
+  );
+  background-size: 200% 100%;
+  animation: hag-kpi-shimmer 4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hag-animate-pulse-glow,
+  .hag-animate-line-draw,
+  .hag-animate-bar-rise,
+  .hag-animate-spin-slow,
+  .hag-kpi-shimmer {
+    animation: none;
+  }
+
+  .hag-animate-line-draw {
+    stroke-dashoffset: 0;
+  }
+
+  .hag-animate-bar-rise {
+    transform: scaleY(1);
+  }
+}
