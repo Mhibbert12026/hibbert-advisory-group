@@ -1199,7 +1199,7 @@ export default function Home() {
                   href="mailto:mike@hibbertadvisorygroup.com"
                   className="text-sm text-slate-400 hover:text-amber-200/90 transition-colors"
                 >
-                  michaeldhibbert@gmail.com
+                  mike@hibbertadvisorygroup.com
                 </a>
               </div>
               <p className="mt-8 text-xs text-slate-500">
