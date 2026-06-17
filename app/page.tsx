@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -11,12 +10,22 @@ import {
   SignatureMetricCard,
   TrustedExperienceSection,
 } from "./components/strategic-visuals";
+import { ConsultationCTA } from "./components/consultation-cta";
+import { GrowingBusinessesAiSection } from "./components/growing-businesses-ai-section";
+import { IndustriesWeSupport } from "./components/industries-we-support";
+import { JsonLd } from "./components/json-ld";
+import { RecentEngagementsSection } from "./components/recent-engagements-section";
+import { RegionalExpertise } from "./components/regional-expertise";
+import { StrategyExecutionTeaser } from "./components/strategy-execution-teaser";
+import { createPageMetadata } from "@/lib/seo";
+import { absoluteUrl } from "@/lib/site-config";
 
-export const metadata: Metadata = {
-  title: "Hibbert Advisory Group | Product, Growth & AI Strategy",
+export const metadata = createPageMetadata({
+  title: "Product, Growth & AI Strategy",
   description:
     "Executive advisory for product-led growth, revenue diagnostics, AI opportunity assessment, and fractional product leadership.",
-};
+  path: "/",
+});
 
 // Discovery intake page for all primary CTA buttons ("Start Discovery Intake").
 const DISCOVERY_INTAKE_PATH = "/intake";
@@ -221,6 +230,7 @@ const services = [
       "Product-market fit refinement",
       "Go-to-market optimization",
     ],
+    detailPath: "/services/digital-transformation",
   },
   {
     id: "ai-assessment",
@@ -240,6 +250,7 @@ const services = [
       "Executive findings presentation",
       "90-day implementation roadmap",
     ],
+    detailPath: "/services/ai-opportunity-assessment",
   },
   {
     id: "fractional",
@@ -264,6 +275,7 @@ const services = [
       "Scaling organizations",
       "Founder support",
     ],
+    detailPath: "/services/fractional-product-leadership",
   },
 ] as const;
 
@@ -354,7 +366,7 @@ const navLinks = [
   { href: "#services", label: "Services" },
   { href: "#clients", label: "Track Record" },
   { href: "#expertise", label: "Expertise" },
-  { href: "#about", label: "About" },
+  { href: "/about/michael-hibbert", label: "About" },
   { href: "#process", label: "Process" },
   { href: "#contact", label: "Contact" },
 ] as const;
@@ -362,6 +374,29 @@ const navLinks = [
 export default function Home() {
   return (
     <div className="bg-[#060d18] text-slate-200 font-sans">
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "Hibbert Advisory Group",
+          url: absoluteUrl("/"),
+          description:
+            "Executive advisory for AI strategy, product leadership, digital transformation, and growth.",
+          founder: {
+            "@type": "Person",
+            name: "Michael Hibbert",
+            url: absoluteUrl("/about/michael-hibbert"),
+          },
+        }}
+      />
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "Hibbert Advisory Group",
+          url: absoluteUrl("/"),
+        }}
+      />
       {/* Subtle grid texture */}
       <div
         className="pointer-events-none fixed inset-0 opacity-[0.03]"
@@ -654,6 +689,12 @@ export default function Home() {
           </div>
         </section>
 
+        <IndustriesWeSupport />
+
+        <GrowingBusinessesAiSection />
+
+        <RegionalExpertise />
+
         {/* Engagement Model */}
         <section className="border-t border-white/5 px-6 py-16 lg:px-8 lg:py-20">
           <div className="mx-auto max-w-6xl">
@@ -796,10 +837,45 @@ export default function Home() {
                     ))}
                     </ul>
                   </div>
+                  {"detailPath" in service && service.detailPath && (
+                    <Link
+                      href={service.detailPath}
+                      className="mt-6 inline-flex text-sm font-semibold text-amber-200/90 hover:text-amber-200 transition-colors"
+                    >
+                      Learn more →
+                    </Link>
+                  )}
                   </div>
                 </article>
                 );
               })}
+            </div>
+
+            <div className="mt-12 flex flex-wrap gap-3">
+              <Link
+                href="/services/ai-opportunity-assessment"
+                className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm text-slate-300 hover:border-amber-500/30 hover:text-amber-200/90 transition-colors"
+              >
+                AI Opportunity Assessment
+              </Link>
+              <Link
+                href="/services/ai-strategy-roadmap"
+                className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm text-slate-300 hover:border-amber-500/30 hover:text-amber-200/90 transition-colors"
+              >
+                AI Strategy & Roadmap
+              </Link>
+              <Link
+                href="/services/fractional-product-leadership"
+                className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm text-slate-300 hover:border-amber-500/30 hover:text-amber-200/90 transition-colors"
+              >
+                Fractional Product Leadership
+              </Link>
+              <Link
+                href="/services/digital-transformation"
+                className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm text-slate-300 hover:border-amber-500/30 hover:text-amber-200/90 transition-colors"
+              >
+                Digital Transformation
+              </Link>
             </div>
 
             <div className="mt-16 border-t border-white/10 pt-12">
@@ -859,6 +935,8 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        <StrategyExecutionTeaser />
 
         {/* AI Implementation Areas */}
         <section className="border-t border-white/5 bg-[#0a1424] px-6 py-16 lg:px-8 lg:py-20">
@@ -960,6 +1038,12 @@ export default function Home() {
                   audience growth, and AI initiatives across media, technology,
                   nonprofit, and startup organizations.
                 </p>
+                <Link
+                  href="/about/michael-hibbert"
+                  className="mt-6 inline-flex text-sm font-semibold text-amber-200/90 hover:text-amber-200 transition-colors"
+                >
+                  View executive profile →
+                </Link>
 
                 <div className="mt-10">
                   <p className="text-sm font-medium tracking-[0.15em] text-amber-400/90 uppercase">
@@ -1164,6 +1248,10 @@ export default function Home() {
           </div>
         </section>
       </main>
+
+      <RecentEngagementsSection />
+
+      <ConsultationCTA />
 
       {/* Premium CTA — directly above footer */}
       <section

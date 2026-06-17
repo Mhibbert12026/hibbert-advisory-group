@@ -1,12 +1,14 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
-export const metadata: Metadata = {
+import { createPageMetadata } from "@/lib/seo";
+
+export const metadata = createPageMetadata({
   title: "Discovery Intake",
   description:
     "Complete the Hibbert Advisory Group discovery intake to share your goals, challenges, and priorities.",
-};
+  path: "/intake",
+});
 
 const TALLY_INTAKE_FORM_URL = "https://tally.so/r/LZkXrG";
 
