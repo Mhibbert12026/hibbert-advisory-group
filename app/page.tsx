@@ -11,12 +11,15 @@ import {
   TrustedExperienceSection,
 } from "./components/strategic-visuals";
 import { ConsultationCTA } from "./components/consultation-cta";
+import { GlobalReachSection } from "./components/global-reach-section";
 import { GrowingBusinessesAiSection } from "./components/growing-businesses-ai-section";
 import { IndustriesWeSupport } from "./components/industries-we-support";
 import { JsonLd } from "./components/json-ld";
 import { RecentEngagementsSection } from "./components/recent-engagements-section";
 import { RegionalExpertise } from "./components/regional-expertise";
 import { StrategyExecutionTeaser } from "./components/strategy-execution-teaser";
+import { AiLeadershipTeaser } from "./components/ai-leadership-teaser";
+import { WhyChooseSection } from "./components/why-choose-section";
 import { createPageMetadata } from "@/lib/seo";
 import { absoluteUrl } from "@/lib/site-config";
 
@@ -695,6 +698,8 @@ export default function Home() {
 
         <RegionalExpertise />
 
+        <GlobalReachSection />
+
         {/* Engagement Model */}
         <section className="border-t border-white/5 px-6 py-16 lg:px-8 lg:py-20">
           <div className="mx-auto max-w-6xl">
@@ -938,6 +943,8 @@ export default function Home() {
 
         <StrategyExecutionTeaser />
 
+        <AiLeadershipTeaser />
+
         {/* AI Implementation Areas */}
         <section className="border-t border-white/5 bg-[#0a1424] px-6 py-16 lg:px-8 lg:py-20">
           <div className="mx-auto max-w-6xl">
@@ -1130,6 +1137,8 @@ export default function Home() {
             </ul>
           </div>
         </section>
+
+        <WhyChooseSection />
 
         {/* Functional Expertise */}
         <section

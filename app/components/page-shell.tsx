@@ -4,6 +4,7 @@ import { DISCOVERY_INTAKE_PATH } from "@/lib/site-config";
 
 const navLinks = [
   { href: "/#services", label: "Services" },
+  { href: "/ai-leadership", label: "AI Leadership" },
   { href: "/about/michael-hibbert", label: "About" },
   { href: "/#contact", label: "Contact" },
 ] as const;
@@ -24,7 +25,7 @@ export function GridTexture() {
 
 export function SiteHeader() {
   return (
-    <header className="relative z-10 border-b border-white/5 bg-[#060d18]/80 backdrop-blur-md">
+    <header className="site-header relative z-10 border-b border-white/5 bg-[#060d18]/80 backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5 lg:px-8">
         <Link href="/" className="block shrink-0">
           <Image
@@ -60,7 +61,7 @@ export function SiteHeader() {
 
 export function SiteFooter() {
   return (
-    <footer className="relative z-10 border-t border-white/5 px-6 py-12 lg:px-8">
+    <footer className="site-footer relative z-10 border-t border-white/5 px-6 py-12 lg:px-8">
       <div className="mx-auto max-w-6xl">
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           <div>
@@ -108,6 +109,11 @@ export function SiteFooter() {
               Company
             </p>
             <ul className="mt-3 space-y-2 text-sm">
+              <li>
+                <Link href="/global-capabilities" className="text-slate-400 hover:text-amber-200/90">
+                  Global Capabilities
+                </Link>
+              </li>
               <li>
                 <Link href="/small-business-ai" className="text-slate-400 hover:text-amber-200/90">
                   AI for Small Business

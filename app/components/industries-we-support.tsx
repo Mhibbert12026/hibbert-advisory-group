@@ -26,6 +26,24 @@ const industries = [
       "Practical AI adoption for fundraising, donor engagement, grant management, and operational efficiency in mission-driven organizations.",
     path: "/industries/nonprofit-ai-consulting",
   },
+  {
+    title: "Professional Services",
+    description:
+      "AI advisory for consultants, advisors, agencies, and service firms—productivity, proposals, client engagement, and knowledge management.",
+    path: "/industries/professional-services-ai",
+  },
+  {
+    title: "Manufacturing",
+    description:
+      "Process optimization, predictive maintenance, supply chain intelligence, and operational visibility for manufacturers.",
+    path: "/industries/manufacturing-ai",
+  },
+  {
+    title: "Education",
+    description:
+      "Student engagement, administrative efficiency, knowledge management, and reporting automation for education organizations.",
+    path: "/industries/education-ai",
+  },
 ] as const;
 
 export function IndustriesWeSupport() {
@@ -50,7 +68,7 @@ export function IndustriesWeSupport() {
           </div>
         </RevealOnScroll>
 
-        <ul className="mt-14 grid gap-6 sm:grid-cols-2">
+        <ul className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {industries.map((industry, index) => (
             <li key={industry.path}>
               <RevealOnScroll delayMs={index * 70}>

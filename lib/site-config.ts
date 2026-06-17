@@ -1,4 +1,7 @@
+import { AI_LEADERSHIP_SITEMAP_ROUTES } from "./ai-leadership";
+import { REPORT_SITEMAP_ROUTES } from "./global-ai-opportunity-report";
 import { INDUSTRY_ROUTES } from "./industry-pages-content";
+import { GLOBAL_SITEMAP_ROUTES } from "./global-advisory-content";
 import { LOCATION_ROUTES } from "./location-pages-content";
 import { SMALL_BUSINESS_SITEMAP_ROUTES } from "./small-business-ai-content";
 
@@ -64,6 +67,9 @@ export const ALL_SITEMAP_ROUTES = [
   ...INDUSTRY_ROUTES,
   ...LOCATION_ROUTES,
   ...SMALL_BUSINESS_SITEMAP_ROUTES,
+  ...GLOBAL_SITEMAP_ROUTES,
+  ...AI_LEADERSHIP_SITEMAP_ROUTES,
+  ...REPORT_SITEMAP_ROUTES,
 ];
 
 export function absoluteUrl(path: string) {

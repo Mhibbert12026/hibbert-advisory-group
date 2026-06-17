@@ -117,3 +117,48 @@ body {
     transform: scaleY(1);
   }
 }
+
+/* Executive report print / PDF export */
+@media print {
+  .report-reader nav,
+  .site-header,
+  .site-footer,
+  .report-toolbar {
+    display: none !important;
+  }
+
+  .report-cover-hero {
+    break-after: page;
+    page-break-after: always;
+  }
+
+  .report-figure {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .report-figure img {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  .report-author-profile {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .report-section {
+    break-before: page;
+    page-break-before: always;
+  }
+
+  .report-section:first-of-type {
+    break-before: auto;
+    page-break-before: auto;
+  }
+
+  body {
+    background: white !important;
+    color: #1a1a1a !important;
+  }
+}

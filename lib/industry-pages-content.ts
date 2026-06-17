@@ -742,11 +742,259 @@ export const nonprofitAiConsulting: SeoLandingPageContent = {
   ],
 };
 
+const professionalServicesRelated = pickRelatedServices([
+  "/services/ai-opportunity-assessment-small-business",
+  "/services/ai-opportunity-assessment",
+  "/small-business-ai",
+  "/global-ai-advisory",
+  "/insights/recent-engagements-impact",
+]);
+
+export const professionalServicesAi: SeoLandingPageContent = {
+  path: "/industries/professional-services-ai",
+  metaTitle: "AI Consulting for Professional Services Firms",
+  metaDescription:
+    "AI consulting for professional services: consultants, advisors, agencies, financial advisors, and coaches. Productivity, proposals, client engagement, and workflow automation.",
+  breadcrumbParent: "Industries",
+  breadcrumbParentPath: "/#industries",
+  heroEyebrow: "Professional Services",
+  heroTitle: "AI Consulting for Professional Services Firms",
+  heroSubtitle:
+    "Executive advisory helping consultants, advisors, agencies, coaches, and service organizations identify where AI improves productivity, client engagement, and revenue capacity—without compromising professional judgment.",
+  introduction: [
+    "Professional services firms sell expertise and relationships—yet principals and teams spend disproportionate time on proposals, research, reporting, scheduling, and administrative follow-up instead of billable client work and business development.",
+    "Hibbert Advisory Group advises professional services leadership on practical AI adoption: workflow automation, knowledge management, client engagement systems, and proposal acceleration—calibrated to firm size, client expectations, and regulatory context.",
+    "Advisory is vendor-neutral and business-first. Recommendations connect AI investment to measurable outcomes: hours recovered, proposals sent, client retention, and revenue capacity—not technology adoption for its own sake.",
+  ],
+  sections: [
+    {
+      id: "challenges",
+      eyebrow: "Industry context",
+      title: "Common Professional Services AI Challenges",
+      paragraphs: [
+        "Professional services firms face distinct constraints: client confidentiality requirements, skepticism about automation affecting relationship quality, and limited technology budgets relative to enterprise organizations.",
+        "Many firms experiment with disconnected tools—writing assistants, scheduling apps, CRM add-ons—without a portfolio view of what creates measurable firm-wide value.",
+      ],
+      bulletItems: [
+        "Billable hour pressure limiting time for technology evaluation",
+        "Client confidentiality and data handling requirements",
+        "Skepticism that automation diminishes personalized service quality",
+        "Partner disagreement on technology investment priorities",
+        "Difficulty measuring ROI across individual productivity tools",
+        "Integration gaps between CRM, document, and communication systems",
+      ],
+    },
+    {
+      id: "opportunities",
+      eyebrow: "Opportunities",
+      title: "AI Applications for Professional Services",
+      paragraphs: [
+        "The highest-value applications target workflows where time is lost at scale—proposals, research, client follow-up, knowledge retrieval, and reporting—while preserving professional judgment on client-facing deliverables.",
+      ],
+      items: [
+        { title: "Productivity & time recovery", description: "Administrative automation recovering hours for billable work, business development, and client relationships." },
+        { title: "Proposal generation", description: "AI-assisted first drafts from firm templates and past engagements—accelerating pursuit capacity and response time." },
+        { title: "Client engagement", description: "Consistent touchpoints, meeting preparation, and follow-up sequences strengthening retention and referral generation." },
+        { title: "Workflow automation", description: "Intake, scheduling, reporting, and internal handoffs reducing friction across the firm." },
+        { title: "Knowledge management", description: "Searchable firm expertise, precedents, and methodologies—reducing time recreating work and improving consistency." },
+      ],
+    },
+    {
+      id: "recommendations",
+      eyebrow: "Strategy",
+      title: "Strategic Recommendations for Firm Leaders",
+      paragraphs: [
+        "Professional services firms achieve AI value through disciplined scope: one or two high-impact workflows with defined metrics, partner alignment, and client-appropriate governance—not firm-wide tool proliferation.",
+        "Partners benefit from independent advisory before vendor commitments—ensuring tools integrate with existing practice management, CRM, and document systems.",
+      ],
+    },
+  ],
+  engagementScenarios: [
+    { title: "Consulting firm proposal acceleration", description: "A boutique consultancy reduced proposal turnaround by fifty percent using AI-assisted drafting—enabling partners to pursue additional opportunities per quarter without adding staff." },
+    { title: "Advisory practice client engagement", description: "A financial advisory practice implemented meeting preparation and CRM automation—improving client touchpoint consistency while recovering ten hours per week for principal client work." },
+    { title: "Agency workflow modernization", description: "A marketing agency automated client reporting compilation and project status updates—reducing account management overhead and improving client communication consistency." },
+  ],
+  advisoryContext:
+    "Professional services firms typically begin with AI Opportunity Assessment or explore profession-specific guides in the Small Business AI Resource Center.",
+  relatedServices: professionalServicesRelated,
+  faq: [
+    { question: "What professional services firms do you advise?", answer: "Consultants, management advisors, financial advisors, coaches, agencies, law firms, accounting practices, and other expertise-based service organizations." },
+    { question: "How do firms maintain client confidentiality with AI?", answer: "Advisory review evaluates tool data policies, workflow design, and confidentiality requirements before implementation recommendations." },
+    { question: "What is the highest-ROI application for professional services?", answer: "Proposal generation, meeting preparation, and client follow-up automation typically deliver the fastest measurable time savings and revenue impact." },
+    { question: "Can small firms afford AI consulting?", answer: "Yes. AI Opportunity Assessment engagements start at $3,500 fixed scope, calibrated to firm size and workflow complexity." },
+  ],
+};
+
+const manufacturingRelated = pickRelatedServices([
+  "/services/ai-opportunity-assessment",
+  "/services/digital-transformation",
+  "/global-digital-transformation",
+  "/strategy-to-execution",
+  "/insights/recent-engagements-impact",
+]);
+
+export const manufacturingAi: SeoLandingPageContent = {
+  path: "/industries/manufacturing-ai",
+  metaTitle: "AI Consulting for Manufacturing Organizations",
+  metaDescription:
+    "AI consulting for manufacturing: process optimization, predictive maintenance, workforce productivity, supply chain intelligence, and operational visibility advisory.",
+  breadcrumbParent: "Industries",
+  breadcrumbParentPath: "/#industries",
+  heroEyebrow: "Manufacturing",
+  heroTitle: "AI Consulting for Manufacturing Organizations",
+  heroSubtitle:
+    "Executive advisory helping manufacturers identify where AI improves operational efficiency, supply chain visibility, workforce productivity, and maintenance outcomes—grounded in plant reality and measurable KPIs.",
+  introduction: [
+    "Manufacturing organizations operate under persistent pressure to improve throughput, reduce downtime, manage supply chain complexity, and maintain workforce productivity—while evaluating AI applications ranging from predictive maintenance to quality inspection and demand forecasting.",
+    "Hibbert Advisory Group provides executive advisory for manufacturing leadership teams evaluating AI adoption. Engagements focus on operational outcomes—OEE improvement, maintenance cost reduction, supply chain visibility, and labor productivity—not technology demonstrations disconnected from plant operations.",
+    "Advisory work spans opportunity assessment, prioritization, and roadmap development—with optional execution support through trusted specialists when implementation capacity is required.",
+  ],
+  sections: [
+    {
+      id: "challenges",
+      eyebrow: "Industry context",
+      title: "Manufacturing AI Adoption Challenges",
+      paragraphs: [
+        "Manufacturing AI adoption is constrained by legacy equipment integration, OT/IT convergence complexity, workforce change management, and difficulty attributing ROI to individual initiatives across complex production environments.",
+      ],
+      bulletItems: [
+        "Legacy equipment limiting data collection and integration",
+        "OT/IT convergence complexity and cybersecurity requirements",
+        "Workforce skepticism from prior technology initiatives",
+        "Difficulty scaling pilots from single lines to enterprise deployment",
+        "Supply chain data fragmentation across suppliers and systems",
+        "ROI attribution challenges across interconnected production metrics",
+      ],
+    },
+    {
+      id: "opportunities",
+      eyebrow: "Opportunities",
+      title: "AI Opportunities in Manufacturing Operations",
+      paragraphs: [
+        "Highest-value manufacturing AI applications typically target high-frequency operational decisions with structured data—maintenance scheduling, quality monitoring, demand planning, and supply chain visibility.",
+      ],
+      items: [
+        { title: "Process optimization", description: "Production parameter tuning, bottleneck identification, and throughput improvement using operational data and analytics." },
+        { title: "Predictive maintenance", description: "Equipment health monitoring and maintenance scheduling reducing unplanned downtime and extending asset life." },
+        { title: "Workforce productivity", description: "Knowledge retrieval, training support, and workflow assistance improving operator efficiency and safety compliance." },
+        { title: "Supply chain intelligence", description: "Demand forecasting, inventory optimization, and supplier risk monitoring improving planning accuracy." },
+        { title: "Operational visibility", description: "Executive dashboards and real-time production metrics giving leadership faster decision capability across facilities." },
+      ],
+    },
+    {
+      id: "recommendations",
+      eyebrow: "Strategy",
+      title: "Strategic Recommendations for Manufacturing Leaders",
+      paragraphs: [
+        "Manufacturing AI succeeds when initiatives are tied to operational KPIs—OEE, downtime, scrap rate, inventory turns—and sequenced by data readiness and integration feasibility at the plant level.",
+        "Leadership teams benefit from assessment before capital investment—validating data infrastructure, workforce readiness, and expected ROI on specific production workflows.",
+      ],
+    },
+  ],
+  engagementScenarios: [
+    { title: "Multi-site predictive maintenance assessment", description: "A manufacturer evaluated AI opportunities across maintenance operations—prioritizing initiatives by downtime impact and data readiness across three production facilities." },
+    { title: "Supply chain visibility planning", description: "Advisory supported demand forecasting and inventory optimization initiative prioritization—connecting supply chain AI investment to working capital and service level targets." },
+  ],
+  advisoryContext:
+    "Manufacturing organizations typically begin with AI Opportunity Assessment combined with Digital Transformation Advisory for broader operational modernization planning.",
+  relatedServices: manufacturingRelated,
+  faq: [
+    { question: "What manufacturing AI applications do you advise on?", answer: "Process optimization, predictive maintenance, quality monitoring, supply chain intelligence, workforce productivity, and operational visibility—prioritized by business impact and readiness." },
+    { question: "Do you implement manufacturing AI systems?", answer: "Advisory focuses on assessment and strategy. Implementation, when needed, is coordinated through trusted specialists under executive direction." },
+    { question: "How do you address OT/IT integration complexity?", answer: "Readiness assessment evaluates data infrastructure, integration requirements, and cybersecurity considerations before initiative prioritization." },
+    { question: "What size manufacturers do you work with?", answer: "Mid-market and enterprise manufacturing organizations evaluating AI across single-site and multi-facility operations." },
+  ],
+};
+
+const educationRelated = pickRelatedServices([
+  "/services/ai-opportunity-assessment",
+  "/services/digital-transformation",
+  "/industries/healthcare-ai-consulting",
+  "/global-ai-advisory",
+  "/insights/recent-engagements-impact",
+]);
+
+export const educationAi: SeoLandingPageContent = {
+  path: "/industries/education-ai",
+  metaTitle: "AI Consulting for Education Organizations",
+  metaDescription:
+    "AI consulting for education: student engagement, administrative efficiency, knowledge management, reporting automation, and operational improvement advisory.",
+  breadcrumbParent: "Industries",
+  breadcrumbParentPath: "/#industries",
+  heroEyebrow: "Education",
+  heroTitle: "AI Consulting for Education Organizations",
+  heroSubtitle:
+    "Executive advisory helping education institutions and learning organizations identify where AI improves student engagement, administrative efficiency, and operational outcomes—within governance and equity considerations.",
+  introduction: [
+    "Education organizations face mounting pressure to improve student outcomes, reduce administrative burden, and modernize operations—while navigating budget constraints, faculty and staff adoption challenges, and appropriate governance for AI in learning environments.",
+    "Hibbert Advisory Group advises education leadership on practical AI adoption focused on operational efficiency, student engagement support, knowledge management, and reporting automation—applications where structured workflows and clear accountability support measurable improvement.",
+    "Advisory engagements are vendor-neutral and governance-aware—accounting for student data privacy, equity considerations, and institutional values before recommending initiatives.",
+  ],
+  sections: [
+    {
+      id: "challenges",
+      eyebrow: "Industry context",
+      title: "Education AI Adoption Challenges",
+      paragraphs: [
+        "Education institutions confront unique constraints: student data privacy requirements, faculty skepticism about technology replacing pedagogy, budget limitations, and governance processes that slow technology adoption relative to corporate environments.",
+      ],
+      bulletItems: [
+        "Student data privacy and FERPA compliance requirements",
+        "Faculty and staff adoption resistance to technology change",
+        "Budget constraints limiting enterprise technology investment",
+        "Equity concerns about AI exacerbating access disparities",
+        "Difficulty measuring educational outcome impact from AI initiatives",
+        "Fragmented systems across academic, administrative, and student services",
+      ],
+    },
+    {
+      id: "opportunities",
+      eyebrow: "Opportunities",
+      title: "AI Opportunities in Education",
+      paragraphs: [
+        "Highest-value education AI applications typically target administrative and operational workflows—where efficiency gains free resources for student-facing priorities—before advancing to learning applications requiring rigorous pedagogical validation.",
+      ],
+      items: [
+        { title: "Student engagement", description: "Personalized communication, advising support, and retention risk identification strengthening student success programs." },
+        { title: "Administrative efficiency", description: "Enrollment processing, scheduling, financial aid workflows, and departmental reporting reducing staff burden." },
+        { title: "Knowledge management", description: "Institutional policy, curriculum, and procedural knowledge accessible to staff and faculty—reducing redundant inquiry and inconsistency." },
+        { title: "Reporting automation", description: "Accreditation, compliance, and institutional reporting compilation reducing manual data assembly at reporting cycles." },
+        { title: "Operational improvement", description: "Facilities, scheduling, and resource allocation optimization improving institutional efficiency." },
+      ],
+    },
+    {
+      id: "governance",
+      eyebrow: "Governance",
+      title: "Governance & Equity Considerations",
+      paragraphs: [
+        "Education AI governance must address student data privacy, equity impact, faculty oversight, and institutional mission alignment—integrated into opportunity evaluation and roadmap sequencing from the start.",
+        "Leadership teams benefit from independent advisory that evaluates vendor claims against institutional requirements and stakeholder values before significant investment.",
+      ],
+    },
+  ],
+  engagementScenarios: [
+    { title: "University administrative automation assessment", description: "A higher education institution evaluated AI opportunities across enrollment, advising, and reporting workflows—prioritizing initiatives by staff time savings and student experience impact." },
+    { title: "K-12 district operational efficiency", description: "Advisory supported a school district's evaluation of scheduling, communication, and reporting automation—producing a phased roadmap within budget constraints." },
+  ],
+  advisoryContext:
+    "Education organizations typically begin with AI Opportunity Assessment, combined with Digital Transformation Advisory for broader institutional modernization planning.",
+  relatedServices: educationRelated,
+  faq: [
+    { question: "What education organizations do you advise?", answer: "Higher education institutions, K-12 districts, education technology companies, and learning organizations evaluating AI for operational and engagement applications." },
+    { question: "How do you address student data privacy?", answer: "Governance planning integrates FERPA, data handling, and vendor compliance requirements into opportunity evaluation before deployment recommendations." },
+    { question: "Do you advise on AI in classroom instruction?", answer: "Advisory addresses learning applications with appropriate emphasis on pedagogical validation, equity impact, and faculty oversight—while prioritizing operational applications with clearer efficiency metrics." },
+    { question: "Can budget-constrained institutions afford advisory?", answer: "Yes. AI Opportunity Assessment engagements are scoped to institutional size, with fixed-scope options starting at $3,500." },
+  ],
+};
+
 export const ALL_INDUSTRY_PAGES = [
   financialServicesAiConsulting,
   saasAiConsulting,
   healthcareAiConsulting,
   nonprofitAiConsulting,
+  professionalServicesAi,
+  manufacturingAi,
+  educationAi,
 ] as const;
 
 export const INDUSTRY_ROUTES: readonly SitemapRoute[] = ALL_INDUSTRY_PAGES.map(
