@@ -8,10 +8,28 @@ export const CORE_SERVICE_LINKS: readonly SeoRelatedLink[] = [
       "Executive resources on AI strategy, governance, adoption, product leadership, and transformation—with articles and downloadable frameworks.",
   },
   {
+    path: "/research",
+    label: "Research & Frameworks",
+    description:
+      "Original research, executive reports, proprietary frameworks, and strategic guidance from Hibbert Advisory Group.",
+  },
+  {
     path: "/reports/global-ai-opportunity-report-2026",
     label: "Global AI Opportunity Report 2026",
     description:
       "Executive research on AI adoption, readiness frameworks, industry analysis, and transformation roadmaps for leadership teams.",
+  },
+  {
+    path: "/insights",
+    label: "Insights Hub",
+    description:
+      "Executive thought leadership, research reports, frameworks, and strategic perspectives on AI, transformation, and growth.",
+  },
+  {
+    path: "/insights/ai-is-not-the-differentiator-experience-is",
+    label: "AI Is Not the Differentiator. Experience Is.",
+    description:
+      "Flagship executive insight on why product leadership, transformation experience, and execution—not AI access alone—create competitive advantage.",
   },
   {
     path: "/global-ai-advisory",

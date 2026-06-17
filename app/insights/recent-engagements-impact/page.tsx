@@ -1,10 +1,12 @@
 import Link from "next/link";
 import { ConsultationCTA } from "@/app/components/consultation-cta";
+import { InsightAuthorityCard } from "@/app/components/insights/insight-authority-card";
+import { InsightRecommendedServices } from "@/app/components/insights/insight-recommended-services";
 import { JsonLd } from "@/app/components/json-ld";
 import { PageShell } from "@/app/components/page-shell";
-import { RelatedAdvisoryLinks } from "@/app/components/related-advisory-links";
 import { RevealOnScroll } from "@/app/components/reveal-on-scroll";
-import { pickRelatedServices } from "@/lib/internal-links";
+import { INSIGHTS_HUB_PATH } from "@/lib/insights";
+import { buildOrganizationSchema } from "@/lib/insights/schema";
 import { selectedExperienceCaseStudies } from "@/lib/selected-experience";
 import { DISCOVERY_INTAKE_PATH, absoluteUrl } from "@/lib/site-config";
 import { createPageMetadata } from "@/lib/seo";
@@ -15,15 +17,6 @@ export const metadata = createPageMetadata({
     "Representative executive engagements across media, streaming, radio, B2B platforms, and AI-enabled SaaS—illustrating product leadership, transformation, and measurable business outcomes.",
   path: "/insights/recent-engagements-impact",
 });
-
-const relatedServices = pickRelatedServices([
-  "/services/ai-opportunity-assessment",
-  "/services/fractional-product-leadership",
-  "/strategy-to-execution",
-  "/about/michael-hibbert",
-  "/services/ai-strategy-roadmap",
-  "/services/digital-transformation",
-]);
 
 const engagementLinks: Record<string, { path: string; label: string }> = {
   "New York Times": {
@@ -81,18 +74,41 @@ export default function RecentEngagementsImpactPage() {
         data={[
           {
             "@context": "https://schema.org",
-            "@type": "WebPage",
+            "@type": "Article",
             name: "Recent Engagements & Impact",
+            headline: "Recent Engagements & Impact",
             description:
               "Executive case studies illustrating product leadership, digital transformation, and AI-enabled initiatives.",
             url: pageUrl,
+            articleSection: "Case Studies",
+            author: {
+              "@type": "Person",
+              name: "Michael Hibbert",
+              url: absoluteUrl("/about/michael-hibbert"),
+            },
+            publisher: {
+              "@type": "Organization",
+              name: "Hibbert Advisory Group",
+              url: absoluteUrl("/"),
+            },
+            isPartOf: {
+              "@type": "CollectionPage",
+              name: "Insights, Research & Perspectives",
+              url: absoluteUrl(INSIGHTS_HUB_PATH),
+            },
           },
+          buildOrganizationSchema(),
           {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             itemListElement: [
               { "@type": "ListItem", position: 1, name: "Home", item: absoluteUrl("/") },
-              { "@type": "ListItem", position: 2, name: "Insights", item: pageUrl },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "Insights",
+                item: absoluteUrl(INSIGHTS_HUB_PATH),
+              },
               {
                 "@type": "ListItem",
                 position: 3,
@@ -111,6 +127,12 @@ export default function RecentEngagementsImpactPage() {
               <li>
                 <Link href="/" className="hover:text-amber-200/90 transition-colors">
                   Home
+                </Link>
+              </li>
+              <li aria-hidden>/</li>
+              <li>
+                <Link href={INSIGHTS_HUB_PATH} className="hover:text-amber-200/90 transition-colors">
+                  Insights
                 </Link>
               </li>
               <li aria-hidden>/</li>
@@ -203,10 +225,8 @@ export default function RecentEngagementsImpactPage() {
             );
           })}
 
-          <RelatedAdvisoryLinks
-            intro="Organizations facing similar product, transformation, or AI adoption challenges typically begin with a defined advisory engagement—assessment, strategy, fractional leadership, or execution support."
-            links={relatedServices}
-          />
+          <InsightAuthorityCard />
+          <InsightRecommendedServices />
 
           <div className="rounded-2xl border border-amber-500/20 bg-gradient-to-br from-amber-500/10 via-[#0f1c30]/80 to-[#0a1424] px-8 py-10 text-center">
             <h2 className="text-2xl font-semibold tracking-tight text-white sm:text-3xl">

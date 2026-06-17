@@ -10,6 +10,8 @@ import {
   SignatureMetricCard,
   TrustedExperienceSection,
 } from "./components/strategic-visuals";
+import { LatestInsightsSection } from "./components/latest-insights-section";
+import { ResearchFrameworksSection } from "./components/research-frameworks-section";
 import { ConsultationCTA } from "./components/consultation-cta";
 import { GlobalReachSection } from "./components/global-reach-section";
 import { GrowingBusinessesAiSection } from "./components/growing-businesses-ai-section";
@@ -366,11 +368,12 @@ const processSteps = [
 ] as const;
 
 const navLinks = [
+  { href: "/", label: "Home" },
   { href: "#services", label: "Services" },
-  { href: "#clients", label: "Track Record" },
-  { href: "#expertise", label: "Expertise" },
+  { href: "#industries", label: "Industries" },
+  { href: "/insights", label: "Insights" },
+  { href: "/research", label: "Research" },
   { href: "/about/michael-hibbert", label: "About" },
-  { href: "#process", label: "Process" },
   { href: "#contact", label: "Contact" },
 ] as const;
 
@@ -1259,6 +1262,10 @@ export default function Home() {
       </main>
 
       <RecentEngagementsSection />
+
+      <ResearchFrameworksSection />
+
+      <LatestInsightsSection />
 
       <ConsultationCTA />
 

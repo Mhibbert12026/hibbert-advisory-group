@@ -15,6 +15,8 @@ import {
   REPORT_SECTIONS,
   SOCIAL_COPY,
 } from "@/lib/global-ai-opportunity-report";
+import { ReportLandingEnhancements } from "@/app/components/global-ai-report/report-landing-enhancements";
+import { buildResearchPublicationSchema } from "@/lib/research/schema";
 import { DISCOVERY_INTAKE_PATH, absoluteUrl } from "@/lib/site-config";
 
 export function ReportLandingPage() {
@@ -25,25 +27,16 @@ export function ReportLandingPage() {
   return (
     <PageShell>
       <JsonLd
-        data={{
-          "@context": "https://schema.org",
-          "@type": "Report",
-          name: REPORT_META.title,
-          description: REPORT_META.metaDescription,
-          url: pageUrl,
-          image: ogImage,
-          author: {
-            "@type": "Person",
-            name: REPORT_META.author.name,
-            jobTitle: REPORT_META.author.title,
-          },
-          publisher: {
-            "@type": "Organization",
-            name: "Hibbert Advisory Group",
-            url: absoluteUrl("/"),
-          },
-          datePublished: REPORT_META.publishDate,
-        }}
+        data={[
+          ...buildResearchPublicationSchema({
+            title: REPORT_META.title,
+            description: REPORT_META.metaDescription,
+            path: REPORT_BASE_PATH,
+            imagePath: REPORT_OG_IMAGE_PATH,
+            publishDate: REPORT_META.publishDate,
+            type: "Report",
+          }),
+        ]}
       />
 
       <section className="relative">
@@ -124,6 +117,8 @@ export function ReportLandingPage() {
           </div>
         </div>
       </section>
+
+      <ReportLandingEnhancements />
 
       <section className="px-6 py-16 lg:px-8 lg:py-20">
         <div className="mx-auto max-w-6xl">

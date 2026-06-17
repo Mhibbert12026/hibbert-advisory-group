@@ -1,3 +1,9 @@
+import { INSIGHTS_HUB_SITEMAP_ROUTE } from "./insights";
+import { INSIGHT_SITEMAP_ROUTE } from "./insights/ai-differentiator-content";
+import { RESEARCH_HUB_SITEMAP_ROUTE } from "./research";
+import { AI_READINESS_SITEMAP_ROUTE } from "./research/ai-readiness-framework-content";
+import { AI_LEADERSHIP_GAP_SITEMAP_ROUTE } from "./research/ai-leadership-gap-content";
+import { FUTURE_REPORTS_SITEMAP_ROUTE } from "./research/future-reports-content";
 import { AI_LEADERSHIP_SITEMAP_ROUTES } from "./ai-leadership";
 import { REPORT_SITEMAP_ROUTES } from "./global-ai-opportunity-report";
 import { INDUSTRY_ROUTES } from "./industry-pages-content";
@@ -44,12 +50,21 @@ export const SERVICE_ROUTES = [
   },
 ] as const;
 
+export const RESEARCH_ROUTES = [
+  RESEARCH_HUB_SITEMAP_ROUTE,
+  AI_READINESS_SITEMAP_ROUTE,
+  AI_LEADERSHIP_GAP_SITEMAP_ROUTE,
+  FUTURE_REPORTS_SITEMAP_ROUTE,
+] as const;
+
 export const INSIGHTS_ROUTES = [
+  INSIGHTS_HUB_SITEMAP_ROUTE,
   {
     path: "/insights/recent-engagements-impact",
     changeFrequency: "monthly" as const,
     priority: 0.8,
   },
+  INSIGHT_SITEMAP_ROUTE,
 ] as const;
 
 export const STATIC_ROUTES = [
@@ -57,6 +72,7 @@ export const STATIC_ROUTES = [
   { path: "/about/michael-hibbert", changeFrequency: "monthly" as const, priority: 0.85 },
   { path: "/strategy-to-execution", changeFrequency: "monthly" as const, priority: 0.85 },
   ...INSIGHTS_ROUTES,
+  ...RESEARCH_ROUTES,
   { path: DISCOVERY_INTAKE_PATH, changeFrequency: "monthly" as const, priority: 0.8 },
   { path: "/thank-you", changeFrequency: "yearly" as const, priority: 0.3 },
 ] as const;

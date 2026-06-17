@@ -3,8 +3,11 @@ import Link from "next/link";
 import { DISCOVERY_INTAKE_PATH } from "@/lib/site-config";
 
 const navLinks = [
+  { href: "/", label: "Home" },
   { href: "/#services", label: "Services" },
-  { href: "/ai-leadership", label: "AI Leadership" },
+  { href: "/#industries", label: "Industries" },
+  { href: "/insights", label: "Insights" },
+  { href: "/research", label: "Research" },
   { href: "/about/michael-hibbert", label: "About" },
   { href: "/#contact", label: "Contact" },
 ] as const;
@@ -117,6 +120,21 @@ export function SiteFooter() {
               <li>
                 <Link href="/small-business-ai" className="text-slate-400 hover:text-amber-200/90">
                   AI for Small Business
+                </Link>
+              </li>
+              <li>
+                <Link href="/research" className="text-slate-400 hover:text-amber-200/90">
+                  Research
+                </Link>
+              </li>
+              <li>
+                <Link href="/insights" className="text-slate-400 hover:text-amber-200/90">
+                  Insights
+                </Link>
+              </li>
+              <li>
+                <Link href="/ai-leadership" className="text-slate-400 hover:text-amber-200/90">
+                  AI Leadership Center
                 </Link>
               </li>
               <li>
