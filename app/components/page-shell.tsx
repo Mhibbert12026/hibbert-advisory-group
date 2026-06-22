@@ -1,16 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
-import { DISCOVERY_INTAKE_PATH } from "@/lib/site-config";
-
-const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/#services", label: "Services" },
-  { href: "/#industries", label: "Industries" },
-  { href: "/insights", label: "Insights" },
-  { href: "/research", label: "Research" },
-  { href: "/about/michael-hibbert", label: "About" },
-  { href: "/#contact", label: "Contact" },
-] as const;
+import { CalendlyLink } from "@/app/components/calendly-link";
+import { SiteHeader } from "@/app/components/site-header";
+import {
+  CONTACT_EMAIL,
+  DISCOVERY_INTAKE_PATH,
+  LINKEDIN_PROFILE_URL,
+} from "@/lib/site-config";
 
 export function GridTexture() {
   return (
@@ -26,68 +22,45 @@ export function GridTexture() {
   );
 }
 
-export function SiteHeader() {
-  return (
-    <header className="site-header relative z-10 border-b border-white/5 bg-[#060d18]/80 backdrop-blur-md">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5 lg:px-8">
-        <Link href="/" className="block shrink-0">
-          <Image
-            src="/hibbert-logo.png"
-            alt="Hibbert Advisory Group"
-            width={270}
-            height={81}
-            className="h-auto w-[210px] sm:w-[270px]"
-            priority
-          />
-        </Link>
-        <nav className="hidden items-center gap-8 md:flex" aria-label="Primary">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="text-sm text-slate-400 hover:text-white transition-colors"
-            >
-              {link.label}
-            </Link>
-          ))}
-        </nav>
-        <Link
-          href={DISCOVERY_INTAKE_PATH}
-          className="hidden rounded-full border border-amber-500/40 bg-amber-500/10 px-5 py-2 text-sm font-medium text-amber-200 hover:bg-amber-500/20 transition-colors sm:inline-flex"
-        >
-          Schedule a Consultation
-        </Link>
-      </div>
-    </header>
-  );
-}
-
 export function SiteFooter() {
   return (
     <footer className="site-footer relative z-10 border-t border-white/5 px-6 py-12 lg:px-8">
       <div className="mx-auto max-w-6xl">
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           <div>
-            <p className="text-sm font-semibold tracking-[0.15em] text-amber-400/90 uppercase">
-              Hibbert Advisory Group
-            </p>
-            <p className="mt-3 text-sm text-slate-400">
+            <Link href="/" className="inline-block">
+              <Image
+                src="/hibbert-logo.png"
+                alt="Hibbert Advisory Group"
+                width={180}
+                height={54}
+                className="h-auto w-[160px]"
+              />
+            </Link>
+            <p className="mt-4 text-sm text-slate-400">
               Product Strategy • Revenue Growth • AI Transformation
             </p>
+            <a
+              href={`mailto:${CONTACT_EMAIL}`}
+              className="mt-3 inline-block text-sm text-slate-400 transition-colors hover:text-amber-200/90"
+            >
+              {CONTACT_EMAIL}
+            </a>
+            <a
+              href={LINKEDIN_PROFILE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-2 block text-sm text-slate-400 transition-colors hover:text-amber-200/90"
+            >
+              LinkedIn
+            </a>
           </div>
           <div>
-            <p className="text-xs font-medium tracking-wider text-slate-500 uppercase">
-              Services
-            </p>
+            <p className="text-xs font-medium tracking-wider text-slate-500 uppercase">Services</p>
             <ul className="mt-3 space-y-2 text-sm">
               <li>
                 <Link href="/services/ai-opportunity-assessment" className="text-slate-400 hover:text-amber-200/90">
                   AI Opportunity Assessment
-                </Link>
-              </li>
-              <li>
-                <Link href="/services/ai-opportunity-assessment-small-business" className="text-slate-400 hover:text-amber-200/90">
-                  AI Assessment for Growing Businesses
                 </Link>
               </li>
               <li>
@@ -108,23 +81,11 @@ export function SiteFooter() {
             </ul>
           </div>
           <div>
-            <p className="text-xs font-medium tracking-wider text-slate-500 uppercase">
-              Company
-            </p>
+            <p className="text-xs font-medium tracking-wider text-slate-500 uppercase">Company</p>
             <ul className="mt-3 space-y-2 text-sm">
               <li>
-                <Link href="/global-capabilities" className="text-slate-400 hover:text-amber-200/90">
-                  Global Capabilities
-                </Link>
-              </li>
-              <li>
-                <Link href="/small-business-ai" className="text-slate-400 hover:text-amber-200/90">
-                  AI for Small Business
-                </Link>
-              </li>
-              <li>
-                <Link href="/research" className="text-slate-400 hover:text-amber-200/90">
-                  Research
+                <Link href="/#outcomes" className="text-slate-400 hover:text-amber-200/90">
+                  Experience & Outcomes
                 </Link>
               </li>
               <li>
@@ -133,8 +94,8 @@ export function SiteFooter() {
                 </Link>
               </li>
               <li>
-                <Link href="/ai-leadership" className="text-slate-400 hover:text-amber-200/90">
-                  AI Leadership Center
+                <Link href="/research" className="text-slate-400 hover:text-amber-200/90">
+                  Research
                 </Link>
               </li>
               <li>
@@ -143,8 +104,23 @@ export function SiteFooter() {
                 </Link>
               </li>
               <li>
-                <Link href="/intake" className="text-slate-400 hover:text-amber-200/90">
-                  Schedule a Consultation
+                <Link href={DISCOVERY_INTAKE_PATH} className="text-slate-400 hover:text-amber-200/90">
+                  Start Discovery Intake
+                </Link>
+              </li>
+              <li>
+                <CalendlyLink className="text-slate-400 hover:text-amber-200/90">
+                  Schedule Discovery Call
+                </CalendlyLink>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <p className="text-xs font-medium tracking-wider text-slate-500 uppercase">Legal</p>
+            <ul className="mt-3 space-y-2 text-sm">
+              <li>
+                <Link href="/privacy" className="text-slate-400 hover:text-amber-200/90">
+                  Privacy Policy
                 </Link>
               </li>
               <li>

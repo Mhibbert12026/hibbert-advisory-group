@@ -15,7 +15,14 @@ export const SITE_URL = "https://hibbertadvisorygroup.com";
 
 export const DISCOVERY_INTAKE_PATH = "/intake";
 
+export const CALENDLY_DISCOVERY_URL =
+  "https://calendly.com/mike-hibbertadvisorygroup/30min";
+
+export const SCHEDULE_DISCOVERY_PATH = "/schedule";
+
 export const CONTACT_EMAIL = "mike@hibbertadvisorygroup.com";
+
+export const LINKEDIN_PROFILE_URL = "https://www.linkedin.com/in/michaeldhibbert";
 
 export const SERVICE_ROUTES = [
   {
@@ -69,11 +76,14 @@ export const INSIGHTS_ROUTES = [
 
 export const STATIC_ROUTES = [
   { path: "/", changeFrequency: "weekly" as const, priority: 1 },
+  { path: "/experience", changeFrequency: "monthly" as const, priority: 0.88 },
   { path: "/about/michael-hibbert", changeFrequency: "monthly" as const, priority: 0.85 },
   { path: "/strategy-to-execution", changeFrequency: "monthly" as const, priority: 0.85 },
   ...INSIGHTS_ROUTES,
   ...RESEARCH_ROUTES,
   { path: DISCOVERY_INTAKE_PATH, changeFrequency: "monthly" as const, priority: 0.8 },
+  { path: SCHEDULE_DISCOVERY_PATH, changeFrequency: "monthly" as const, priority: 0.85 },
+  { path: "/privacy", changeFrequency: "yearly" as const, priority: 0.3 },
   { path: "/thank-you", changeFrequency: "yearly" as const, priority: 0.3 },
 ] as const;
 

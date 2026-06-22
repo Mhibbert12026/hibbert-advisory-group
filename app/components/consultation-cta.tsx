@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { CalendlyLink } from "@/app/components/calendly-link";
 import { DISCOVERY_INTAKE_PATH } from "@/lib/site-config";
 
 export function ConsultationCTA() {
@@ -18,12 +19,17 @@ export function ConsultationCTA() {
               Let&apos;s discuss how AI, product strategy, and digital transformation
               can create measurable value for your organization.
             </p>
-            <Link
-              href={DISCOVERY_INTAKE_PATH}
-              className="mt-8 inline-flex items-center justify-center rounded-full bg-amber-500 px-10 py-3.5 text-sm font-semibold text-[#060d18] shadow-lg shadow-amber-500/20 hover:bg-amber-400 transition-colors"
-            >
-              Schedule a Consultation
-            </Link>
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+              <Link
+                href={DISCOVERY_INTAKE_PATH}
+                className="inline-flex items-center justify-center rounded-full bg-amber-500 px-10 py-3.5 text-sm font-semibold text-[#060d18] shadow-lg shadow-amber-500/20 transition-colors hover:bg-amber-400"
+              >
+                Start Discovery Intake
+              </Link>
+              <CalendlyLink className="inline-flex items-center justify-center rounded-full border border-amber-500/35 bg-amber-500/10 px-10 py-3.5 text-sm font-semibold text-amber-200 transition-colors hover:border-amber-500/50 hover:bg-amber-500/15">
+                Schedule Discovery Call
+              </CalendlyLink>
+            </div>
           </div>
         </div>
       </div>

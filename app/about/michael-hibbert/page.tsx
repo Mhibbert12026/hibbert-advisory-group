@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ConsultationCTA } from "@/app/components/consultation-cta";
+import { EnterpriseExperienceShowcase } from "@/app/components/enterprise-experience-showcase";
 import { JsonLd } from "@/app/components/json-ld";
 import { PageShell } from "@/app/components/page-shell";
 import { SelectedExperienceCaseStudies } from "@/app/components/selected-experience-case-studies";
@@ -274,6 +275,8 @@ export default function AboutMichaelHibbertPage() {
           </div>
         </div>
       </section>
+
+      <EnterpriseExperienceShowcase />
 
       <ConsultationCTA />
     </PageShell>
